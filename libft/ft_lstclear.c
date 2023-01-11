@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
+/*   By: viferrei <viferrei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/10 20:02:44 by hmochida          #+#    #+#             */
-/*   Updated: 2023/01/10 21:40:08 by hmochida         ###   ########.fr       */
+/*   Created: 2021/09/06 15:04:11 by viferrei          #+#    #+#             */
+/*   Updated: 2021/09/06 16:40:57 by viferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "libft.h"
 
-int	main(int argc, char *argv[])
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	t_raw_map	*map;
+	t_list	*temp1;
+	t_list	*temp2;
 
-	map = init_map("map.cub");
-	map = detroy_map(map);
-
-
-	//desabilita warnings de unused variables
-	(void) argc;
-	(void) argv;
+	if (!*lst)
+		return ;
+	temp1 = *lst;
+	while (temp1)
+	{
+		temp2 = temp1->next;
+		ft_lstdelone(temp1, del);
+		temp1 = temp2;
+	}
+	*lst = NULL;
 }
