@@ -5,20 +5,19 @@ MAKEFLAGS = --no-print-directory
 BUILDDIR = objs
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
-VPATH = src tests src/utils src/main
+VPATH = src tests src/utils src/main src/map_utils
 
 # headers
-INCLUDES = -I /headers
+INCLUDES = -I ./headers
 
 # Lists sources. Manually because of norm...
-MAIN		= minishell.c
-UTILS		= ft_strcmp.c get_env.c safe_free.c test_utils.c
-SIGNALS		= signals.c
-TEST_LIST	= test_expand_vars.c
+MAIN		=	main.c
+UTILS		=	safe_free.c ft_strcmp.c
+MAP_UTILS	=	init_map.c
+TEST_LIST	=
 
 # Names sources
-SOURCES = $(BUILTIN) $(EXEC) $(MAIN) $(PARSE) $(PROMPT) $(REDIRECTS) $(STATES) $(UTILS) \
-			$(SIGNALS) $(TEST_LIST)
+SOURCES = $(MAIN) $(UTILS) $(MAP_UTILS) $(TEST_LIST)
 
 # Names objects
 OBJS = $(addprefix $(BUILDDIR)/, $(SOURCES:%.c=%.o))
@@ -57,10 +56,10 @@ all: $(NAME)
 
 fs: $(NAME_FS)
 
-test:
-	@make -C tests/
-	@printf "\n"
-	@./tests/tester
+# test:
+# 	@make -C tests/
+# 	@printf "\n"
+# 	@./tests/tester
 
 clean:
 	@rm -rf $(BUILDDIR)

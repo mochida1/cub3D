@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   cub_utils.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/10 20:02:44 by hmochida          #+#    #+#             */
-/*   Updated: 2023/01/10 21:40:08 by hmochida         ###   ########.fr       */
+/*   Created: 2023/01/10 20:17:31 by hmochida          #+#    #+#             */
+/*   Updated: 2023/01/10 21:10:45 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#ifndef CUB_UTILS_H
+# define CUB_UTILS_H
 
-int	main(int argc, char *argv[])
-{
-	t_raw_map	*map;
+void	*safe_free(void *content);
+void	*free_string_array(char	**pp);
 
-	map = init_map("map.cub");
-	map = detroy_map(map);
-
-
-	//desabilita warnings de unused variables
-	(void) argc;
-	(void) argv;
-}
+#endif //CUB_UTILS_H

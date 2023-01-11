@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
+/*   By: viferrei <viferrei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/10 20:02:44 by hmochida          #+#    #+#             */
-/*   Updated: 2023/01/10 21:40:08 by hmochida         ###   ########.fr       */
+/*   Created: 2021/09/06 14:23:48 by viferrei          #+#    #+#             */
+/*   Updated: 2021/09/06 14:33:25 by viferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "libft.h"
 
-int	main(int argc, char *argv[])
+t_list	*ft_lstlast(t_list *lst)
 {
-	t_raw_map	*map;
-
-	map = init_map("map.cub");
-	map = detroy_map(map);
-
-
-	//desabilita warnings de unused variables
-	(void) argc;
-	(void) argv;
+	if (!lst)
+		return (0);
+	while (lst->next)
+		lst = lst->next;
+	return (lst);
 }

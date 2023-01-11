@@ -1,26 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   safe_free.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/10 20:02:44 by hmochida          #+#    #+#             */
-/*   Updated: 2023/01/10 21:40:08 by hmochida         ###   ########.fr       */
+/*   Created: 2022/08/22 00:44:38 by coder             #+#    #+#             */
+/*   Updated: 2023/01/10 21:03:35 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	main(int argc, char *argv[])
+void	*safe_free(void *content)
 {
-	t_raw_map	*map;
+	if (content != NULL)
+	{
+		free (content);
+		content = NULL;
+		return (NULL);
+	}
+	return (NULL);
+}
 
-	map = init_map("map.cub");
-	map = detroy_map(map);
+void	*free_string_array(char	**pp)
+{
+	int	i;
 
-
-	//desabilita warnings de unused variables
-	(void) argc;
-	(void) argv;
+	i = 0;
+	if (!pp)
+		return (NULL);
+	while (pp[i])
+	{
+		pp[i] = safe_free(pp[i]);
+		i++;
+	}
+	pp = safe_free(pp);
+	return (NULL);
 }

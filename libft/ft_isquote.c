@@ -1,26 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_isquote.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
+/*   By: viferrei <viferrei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/10 20:02:44 by hmochida          #+#    #+#             */
-/*   Updated: 2023/01/10 21:40:08 by hmochida         ###   ########.fr       */
+/*   Created: 2022/09/01 19:22:40 by viferrei          #+#    #+#             */
+/*   Updated: 2022/09/01 19:42:48 by viferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
-
-int	main(int argc, char *argv[])
+int	ft_isquote(int c)
 {
-	t_raw_map	*map;
-
-	map = init_map("map.cub");
-	map = detroy_map(map);
-
-
-	//desabilita warnings de unused variables
-	(void) argc;
-	(void) argv;
+	if (c == '\'' || c == '\"')
+		return (1);
+	return (0);
 }
