@@ -32,7 +32,7 @@ FSF = -fsanitize=address
 
 $(NAME): $(LIBFT) $(BUILDDIR) $(OBJS)
 	@printf "Compiling cub3D...\n"
-	@$(CC) $(CF) $(OBJS) $(INCLUDES) $(LIBFT) -lmlx -o $(NAME)
+	@$(CC) $(CF) $(OBJS) $(INCLUDES) $(LIBFT) -o $(NAME)
 	@printf "Done!\n"
 
 $(NAME_FS): $(LIBFT) $(OBJS)

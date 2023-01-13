@@ -1,17 +1,43 @@
-Mussum Ipsum, cacilds vidis litro abertis. Praesent malesuada urna nisi, quis volutpat erat hendrerit non. Nam vulputate dapibus.Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget.Nullam volutpat risus nec leo commodo, ut interdum diam laoreet. Sed non consequat odio.Sapien in monti palavris qui num significa nadis i pareci latim.
-Copo furadis é disculpa de bebadis, arcu quam euismod magna.Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.Nec orci ornare consequat. Praesent lacinia ultrices consectetur. Sed non ipsum felis.Tá deprimidis, eu conheço uma cachacis que pode alegrar sua vidis.
-Quem manda na minha terra sou euzis!Quem num gosta di mim que vai caçá sua turmis!Tá deprimidis, eu conheço uma cachacis que pode alegrar sua vidis.Suco de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis.
-Suco de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis.Si u mundo tá muito paradis? Toma um mé que o mundo vai girarzis!Tá deprimidis, eu conheço uma cachacis que pode alegrar sua vidis.Casamentiss faiz malandris se pirulitá.
-Manduma pindureta quium dia nois paga.Posuere libero varius. Nullam a nisl ut ante blandit hendrerit. Aenean sit amet nisi.A ordem dos tratores não altera o pão duris.Nullam volutpat risus nec leo commodo, ut interdum diam laoreet. Sed non consequat odio.
-Nullam volutpat risus nec leo commodo, ut interdum diam laoreet. Sed non consequat odio.Nec orci ornare consequat. Praesent lacinia ultrices consectetur. Sed non ipsum felis.Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget.Todo mundo vê os porris que eu tomo, mas ninguém vê os tombis que eu levo!
-Admodum accumsan disputationi eu sit. Vide electram sadipscing et per.Quem num gosta di mé, boa gentis num é.Não sou faixa preta cumpadi, sou preto inteiris, inteiris.Diuretics paradis num copo é motivis de denguis.
+#implementign shell like comments to be ignored.
 
-Praesent malesuada urna nisi, quis volutpat erat hendrerit non. Nam vulputate dapibus.Quem num gosta di mim que vai caçá sua turmis!Viva Forevis aptent taciti sociosqu ad litora torquent.Paisis, filhis, espiritis santis.
-Suco de cevadiss deixa as pessoas mais interessantis.Sapien in monti palavris qui num significa nadis i pareci latim.Copo furadis é disculpa de bebadis, arcu quam euismod magna.Admodum accumsan disputationi eu sit. Vide electram sadipscing et per.
-Diuretics paradis num copo é motivis de denguis.Nec orci ornare consequat. Praesent lacinia ultrices consectetur. Sed non ipsum felis.Detraxit consequat et quo num tendi nada.Per aumento de cachacis, eu reclamis.
-Casamentiss faiz malandris se pirulitá.Leite de capivaris, leite de mula manquis sem cabeça.Mauris nec dolor in eros commodo tempor. Aenean aliquam molestie leo, vitae iaculis nisl.Manduma pindureta quium dia nois paga.
-Suco de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis.Cevadis im ampola pa arma uma pindureta.Pra lá , depois divoltis porris, paradis.Mauris nec dolor in eros commodo tempor. Aenean aliquam molestie leo, vitae iaculis nisl.
-Tá deprimidis, eu conheço uma cachacis que pode alegrar sua vidis.Todo mundo vê os porris que eu tomo, mas ninguém vê os tombis que eu levo!Atirei o pau no gatis, per gatis num morreus.Cevadis im ampola pa arma uma pindureta.
-Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget.Nec orci ornare consequat. Praesent lacinia ultrices consectetur. Sed non ipsum felis.Quem num gosta di mim que vai caçá sua turmis!Atirei o pau no gatis, per gatis num morreus.
+#INDETIFIERS
+NO	path/to/north/texture
+SO	path/to/south/texture
+WE	path/to/west/texture
+EA	path/to/east/texture
+F	0x9F,255,	0
+C		0, 255, 0xF9
 
-Interagi no mé, cursus quis, vehicula ac nisi.Diuretics paradis num copo é motivis de denguis.Sapien in monti palavris qui num significa nadis i pareci latim.Detraxit consequat et quo num tendi nada.
+#will make it so that '\t' is replaced by (4-(number of characters in line so far)%4)
+
+#this should be a valid(although shitty, made by a total asshole) map. Note the trailing spaces/tabs.
+                1 1 1 1 1 1 1 1 1 1 1
+            1111111111111111111111111				  111111111
+            100000000011000000000000111111111111111111100000001
+            1011000001110000000000000000000000000000000000000011
+            10010000000000000000000011111111111111111110000000011
+    111111111011000001110000000000001				  10111111111
+    10000000001100000111011111111111111111111         111
+    11110111111111011100000010001           1
+    11110111111111011101010010001           1       111111111
+    11000000110101011100000010001           1       100000001
+    10000000000000001100000010001           1       100000001
+    10000000000000001101010010001        1111       100000001
+    11000001110101011111011110N0111                 110000011    	
+    11110111 1110101 101111010001                    1100011
+    11111111 1111111 111111111011                     11011
+                             101                       111
+                             101
+                             101
+                             101                                       
+							 101
+                            11011
+				11111111111110001111111
+				10000000000000000000001
+				10011111111111111110001
+				1001              10001
+				10011111111111111110001
+				10000000000000000000001
+				11111111111111111111111
+
+#and now we'll need an unicorn map.
