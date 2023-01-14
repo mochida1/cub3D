@@ -1,9 +1,9 @@
 ## Map parsing
 
 ### Settings
-- [ ] Line can start with "#" (comments)
+- [X] Line can start with "#" (comments)
 	- jump to next line.
-- [ ] Character is one of the following: NO, SO, WE, EA, F, C
+- [X] Character is one of the following: NO, SO, WE, EA, F, C
 	- [ ] Orientations: path must be valid.
 	- [ ] F, C: 3 numbers between 0-255 (hexadecimal too?)
 
