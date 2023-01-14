@@ -1,6 +1,5 @@
 *.o
 *.a
-minishell
 tester
 .vscode
 vgcore*
@@ -16,3 +15,4 @@ delete.me
 a.out
 tests/
 test
+cub3D

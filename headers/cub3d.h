@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 19:57:32 by hmochida          #+#    #+#             */
-/*   Updated: 2023/01/14 17:49:29 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/01/14 18:56:52 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@
 t_raw_map	*init_map(char *path_to_map);
 void		*detroy_map(t_raw_map *map);
 void		map_disassemble(t_raw_map *map);
+void		get_map_raw_layout(t_raw_map *map);
 
 #endif //CUB3D_H

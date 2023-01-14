@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 19:58:10 by hmochida          #+#    #+#             */
-/*   Updated: 2023/01/14 17:58:28 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/01/14 18:58:37 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	get_raw_map_data(t_raw_map *map, char *path_to_map)
 		printf("error getting raw map data\n");
 		exit (1);
 	}
-	if (read_map_data(map,path_to_map))
+	if (read_map_data(map, path_to_map))
 	{
 		printf("error reading raw map data\n");
 		exit (1);
@@ -76,7 +76,7 @@ int	get_raw_map_data(t_raw_map *map, char *path_to_map)
 	It is the caller's responsability to free all allocated memmory afterwards;
 	Just use utils_free_map_file(char **ptr);
 */
-t_raw_map *init_map(char *path_to_map)
+t_raw_map	*init_map(char *path_to_map)
 {
 	t_raw_map	*map;
 
@@ -88,6 +88,7 @@ t_raw_map *init_map(char *path_to_map)
 void	*detroy_map(t_raw_map *map)
 {
 	map->raw_map_data = free_string_array(map->raw_map_data);
+	map->raw_layout = free_string_array(map->raw_layout);
 	map = safe_free(map);
 	return (NULL);
 }
