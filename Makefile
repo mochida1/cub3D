@@ -13,7 +13,7 @@ INCLUDES = -I ./headers
 # Lists sources. Manually because of norm...
 MAIN		=	main.c
 UTILS		=	safe_free.c ft_strcmp.c
-MAP_UTILS	=	init_map.c
+MAP_UTILS	=	init_map.c map_disassemble.c get_map_raw_layout.c
 TEST_LIST	=
 
 # Names sources
@@ -32,7 +32,7 @@ FSF = -fsanitize=address
 
 $(NAME): $(LIBFT) $(BUILDDIR) $(OBJS)
 	@printf "Compiling cub3D...\n"
-	@$(CC) $(CF) $(OBJS) $(INCLUDES) $(LIBFT) -lmlx -o $(NAME)
+	@$(CC) $(CF) $(OBJS) $(INCLUDES) $(LIBFT) -o $(NAME)
 	@printf "Done!\n"
 
 $(NAME_FS): $(LIBFT) $(OBJS)

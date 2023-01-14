@@ -6,7 +6,7 @@
 /*   By: viferrei <viferrei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 20:02:44 by hmochida          #+#    #+#             */
-/*   Updated: 2023/01/12 19:53:03 by viferrei         ###   ########.fr       */
+/*   Updated: 2023/01/14 18:56:11 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,8 @@ int	main(int argc, char *argv[])
 	t_raw_map	*map;
 
 	map = init_map("map.cub");
-	map = destroy_map(map);
+	map = detroy_map(map);
 
-	//desabilita warnings de unused variables
 	(void) argc;
 	(void) argv;
 }
