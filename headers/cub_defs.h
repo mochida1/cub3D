@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   cub_defs.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
+/*   By: viferrei <viferrei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 20:09:00 by hmochida          #+#    #+#             */
 /*   Updated: 2023/01/14 18:07:40 by hmochida         ###   ########.fr       */
@@ -32,7 +32,5 @@ typedef struct	s_configs
 	char	floor_colour[3];
 	char	ceiling_colour[3];
 }	t_configs;
-
-
 
 #endif // CUB_DEFS_H

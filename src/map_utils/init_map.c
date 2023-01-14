@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   init_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
+/*   By: viferrei <viferrei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 19:58:10 by hmochida          #+#    #+#             */
 /*   Updated: 2023/01/14 18:58:37 by hmochida         ###   ########.fr       */
@@ -36,6 +36,7 @@ int	get_raw_map_size(t_raw_map *map, char *path_to_map)
 	return (0);
 }
 
+//	Saves each line of the map file in raw_map_data
 int	read_map_data(t_raw_map *map, char *path_to_map)
 {
 	int		fd;
@@ -79,13 +80,14 @@ int	get_raw_map_data(t_raw_map *map, char *path_to_map)
 t_raw_map	*init_map(char *path_to_map)
 {
 	t_raw_map	*map;
+	int			i;
 
 	map = ft_calloc(1, sizeof(t_raw_map));
 	get_raw_map_data(map, path_to_map);
 	return (map);
 }
 
-void	*detroy_map(t_raw_map *map)
+void	*destroy_map(t_raw_map *map)
 {
 	map->raw_map_data = free_string_array(map->raw_map_data);
 	map->raw_layout = free_string_array(map->raw_layout);
