@@ -4,6 +4,7 @@ NAME_TEST = test
 MAKEFLAGS = --no-print-directory
 BUILDDIR = objs
 LIBFT_DIR = libft
+LLIBS =  -lmlx -lXext -lX11
 LIBFT = $(LIBFT_DIR)/libft.a
 VPATH = src tests src/utils src/main src/map_utils
 
@@ -32,11 +33,11 @@ FSF = -fsanitize=address
 
 $(NAME): $(LIBFT) $(BUILDDIR) $(OBJS)
 	@printf "Compiling cub3D...\n"
-	@$(CC) $(CF) $(OBJS) $(INCLUDES) $(LIBFT) -o $(NAME)
+	@$(CC) $(CF) $(OBJS) $(INCLUDES) $(LIBFT) $(LLIBS) -o $(NAME)
 	@printf "Done!\n"
 
 $(NAME_FS): $(LIBFT) $(OBJS)
-	@$(CC) $(CF) $(FSF) $(OBJS) $(INCLUDES) $(LIBFT) -lmlx -o $(NAME_FS)
+	@$(CC) $(CF) $(FSF) $(OBJS) $(INCLUDES) $(LIBFT) $(LLIBS) -o $(NAME_FS)
 
 $(NAME_TEST): $(LIBFT) $(TEST_OBJS)
 	@printf "Compiling test files...\n"

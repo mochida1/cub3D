@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   event_handler.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/10 20:02:44 by hmochida          #+#    #+#             */
-/*   Updated: 2023/01/14 20:52:24 by hmochida         ###   ########.fr       */
+/*   Created: 2023/01/14 20:23:05 by hmochida          #+#    #+#             */
+/*   Updated: 2023/01/14 20:29:48 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-#include <mlx.h>
 
-int	main(int argc, char *argv[])
+void	event_handler(void *win_ptr)
 {
-	t_raw_map	*map;
-	t_mlx		*mlx;
+	// mlx_hook(win_ptr, X_KEYPRESS, 1L << 0, key_press, img);
+	mlx_hook(win_ptr, RED_X, 1L << 17, red_x_close, img);
+	// mlx_expose_hook(win_ptr, &render, img);
+}
 
-	map = init_map("map.cub");
-	map = destroy_map(map);
-	mlx = ft_calloc(1, sizeof(t_mlx));
-	mlx->ctx_ptr = mlx_init();
-	mlx->win_ptr = mlx_new_window(mlx->ctx_ptr, 200, 200, "Janella");
+int	key_press(int keycode, void *data)
+{
+	int	i;
 
-	while (1)
-		sleep(1);
-	(void) argc;
-	(void) argv;
+	i = 0;
+	i = keymap00(keycode, img);
+	if (i)
+		i = keymap01(keycode, img);
+	if (i)
+		i = keymap02(keycode, img);
+	return (0);
 }

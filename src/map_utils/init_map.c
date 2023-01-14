@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: viferrei <viferrei@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 19:58:10 by hmochida          #+#    #+#             */
-/*   Updated: 2023/01/14 18:58:37 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/01/14 20:49:09 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,6 @@ int	get_raw_map_data(t_raw_map *map, char *path_to_map)
 t_raw_map	*init_map(char *path_to_map)
 {
 	t_raw_map	*map;
-	int			i;
 
 	map = ft_calloc(1, sizeof(t_raw_map));
 	get_raw_map_data(map, path_to_map);

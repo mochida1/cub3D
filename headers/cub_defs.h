@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub_defs.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: viferrei <viferrei@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 20:09:00 by hmochida          #+#    #+#             */
-/*   Updated: 2023/01/14 18:07:40 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/01/14 20:29:33 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,30 @@ typedef struct	s_configs
 	char	floor_colour[3];
 	char	ceiling_colour[3];
 }	t_configs;
+
+typedef struct	s_mlx
+{
+	void	*ctx_ptr;
+	void	*win_ptr;
+	void	*img_ptr;
+}	t_mlx;
+
+/* KEY PRESS CODES*/
+# define KEY_ESC	65307
+# define KEY_Q		113
+# define KEY_E		101
+# define KEY_W		119
+# define KEY_A		97
+# define KEY_S		115
+# define KEY_D		100
+# define KEY_R		114
+# define KEY_F		102
+# define KEY_Z		122
+# define KEY_C		99
+# define KEY_I		105
+# define KEY_O		111
+# define KEY_P		122
+# define KEY_SPACE	32
+# define RED_X		17
 
 #endif // CUB_DEFS_H
