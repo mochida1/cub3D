@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 19:58:10 by hmochida          #+#    #+#             */
-/*   Updated: 2023/01/10 21:40:40 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/01/14 17:58:28 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ int	get_raw_map_data(t_raw_map *map, char *path_to_map)
 		printf("error reading raw map data\n");
 		exit (1);
 	}
+	map_disassemble(map);
 	return (0);
 }
 
@@ -81,13 +82,6 @@ t_raw_map *init_map(char *path_to_map)
 
 	map = ft_calloc(1, sizeof(t_raw_map));
 	get_raw_map_data(map, path_to_map);
-
-	int i = 0;
-	while (map->raw_map_data[i])
-	{
-		printf("%s", map->raw_map_data[i]);
-		i++;
-	}
 	return (map);
 }
 

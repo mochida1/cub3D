@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub_defs.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 20:09:00 by hmochida          #+#    #+#             */
-/*   Updated: 2023/01/12 22:25:07 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/01/14 18:07:40 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ typedef struct	s_raw_map
 {
 	char			**raw_map_data;
 	unsigned int	raw_map_size;
+	unsigned int	raw_layout_size;
 	unsigned int	raw_map_max_len;
 	char			**raw_cfg;
 	char			**raw_layout;

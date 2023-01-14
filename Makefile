@@ -13,7 +13,7 @@ INCLUDES = -I ./headers
 # Lists sources. Manually because of norm...
 MAIN		=	main.c
 UTILS		=	safe_free.c ft_strcmp.c
-MAP_UTILS	=	init_map.c
+MAP_UTILS	=	init_map.c map_disassemble.c
 TEST_LIST	=
 
 # Names sources
