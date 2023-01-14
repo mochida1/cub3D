@@ -1,35 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub_defs.h                                         :+:      :+:    :+:   */
+/*   get_map_configs.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: viferrei <viferrei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/10 20:09:00 by hmochida          #+#    #+#             */
-/*   Updated: 2023/01/13 21:29:26 by viferrei         ###   ########.fr       */
+/*   Created: 2023/01/13 21:22:52 by viferrei          #+#    #+#             */
+/*   Updated: 2023/01/13 21:29:00 by viferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB_DEFS_H
-# define CUB_DEFS_H
+#include "cub3d.h"
 
-typedef struct	s_raw_map
+int	get_map_configs(t_raw_map *map)
 {
-	char			**raw_map_data;
-	unsigned int	raw_map_size;
-	unsigned int	raw_map_max_len;
-	char			**raw_cfg;
-	char			**raw_layout;
-}	t_raw_map;
 
-typedef struct	s_configs
-{
-	char	*north_texture;
-	char	*south_texture;
-	char	*west_texture;
-	char	*east_texture;
-	char	floor_colour[3];
-	char	ceiling_colour[3];
-}	t_configs;
-
-#endif // CUB_DEFS_H
+}
