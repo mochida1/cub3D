@@ -1,21 +1,38 @@
-void	key_esc(void *mlx_context)
-{
-	ft_putstr_fd("\033[31;1mClosing Cub32...\033[0m\n", 1);
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   key_esc.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/14 21:08:39 by hmochida          #+#    #+#             */
+/*   Updated: 2023/01/14 22:16:45 by hmochida         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-	// mlx_destroy_image(context->mlx_ptr, context->img);
-	// mlx_destroy_window(context->mlx_ptr, context->win_ptr);
-	// mlx_destroy_display(context->mlx_ptr);
-	// ft_putstr_fd("\033[32;1mCub3D closed successfully.\033[0m\n", 1);
+#include "cub3d.h"
+
+void	key_esc(t_mlx *mlx)
+{
+	printf("\033[31;1mClosing Cub32...\033[0m\n");
+
+	// mlx_destroy_image(mlx->mlx_ptr, mlx->img);
+	mlx_destroy_window(mlx->mlx_ptr, mlx->win_ptr);
+	mlx_destroy_display(mlx->mlx_ptr);
+
+	printf("\033[32;1mCub3D closed successfully.\033[0m\n");
 	exit (0);
 }
 
-void	red_x_close(void *context_to_free)
+int	red_x_close(t_mlx *mlx)
 {
-	ft_putstr_fd("\033[31;1mClosing Cub32...\033[0m\n", 1);
+	printf("\033[31;1mClosing Cub32...\033[0m\n");
 
 	// mlx_destroy_image(img->mlx_ptr, img->img);
-	// mlx_destroy_window(img->mlx_ptr, img->win_ptr);
-	// mlx_destroy_display(img->mlx_ptr);
-	ft_putstr_fd("\033[32;1mCub3D closed successfully.\033[0m\n", 1);
+	mlx_destroy_window(mlx->mlx_ptr, mlx->win_ptr);
+	mlx_destroy_display(mlx->mlx_ptr);
+
+	printf("\033[32;1mCub3D closed successfully.\033[0m\n");
 	exit (0);
+	return (0);
 }

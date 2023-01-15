@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 19:57:32 by hmochida          #+#    #+#             */
-/*   Updated: 2023/01/14 20:49:05 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/01/14 22:16:35 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,17 @@
 # include "../libft/libft.h"
 # include "cub_utils.h"
 # include "cub_defs.h"
+# include "cub_mlx_keymap.h"
 
-/* MAP UTILS*/
+/* MAP UTILS */
 t_raw_map	*init_map(char *path_to_map);
 void		*destroy_map(t_raw_map *map);
 void		map_disassemble(t_raw_map *map);
 void		get_map_raw_layout(t_raw_map *map);
+
+/* ACTIONS */
+void		event_handler(t_mlx *mlx);
+int			red_x_close(t_mlx *mlx);
+void		key_esc(t_mlx *mlx);
 
 #endif //CUB3D_H

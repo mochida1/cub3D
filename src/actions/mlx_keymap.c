@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mlx_keymap.c                                    :+:      :+:    :+:   */
+/*   mlx_keymap.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 23:53:33 by hmochida          #+#    #+#             */
-/*   Updated: 2023/01/14 20:11:14 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/01/14 22:16:47 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub_defs.h"
+#include "cub3d.h"
 
 /*
 ** actions for keycodes ESC, Q, W, E
 */
-int	keymap00(int keycode, void *ptr)
+int	keymap00(int keycode, t_mlx *mlx)
 {
 	if (keycode == KEY_ESC)
-		key_esc(ptr);
-	else if (keycode == KEY_Q)
-	{
-		return (0);
-	}
+		key_esc(mlx);
 	else if (keycode == KEY_E)
 	{
 		return (0);
@@ -33,11 +29,12 @@ int	keymap00(int keycode, void *ptr)
 /*
 ** placeholder. actions for keycodes A, S , D
 */
-int	keymap01(int keycode, t_data *img)
+int	keymap01(int keycode, t_mlx *mlx)
 {
+	(void) mlx;
 	if (keycode == KEY_A)
 	{
-		return (img->wid);
+		return (0);
 	}
 	else if (keycode == KEY_S)
 	{
@@ -57,11 +54,12 @@ int	keymap01(int keycode, t_data *img)
 /*
 ** placeholder. actions for keycodes R, F, Z, C
 */
-int	keymap02(int keycode, t_data *img)
+int	keymap02(int keycode, t_mlx *mlx)
 {
+	(void) mlx;
 	if (keycode == KEY_R)
 	{
-		return (img->wid);
+		return (0);
 	}
 	else if (keycode == KEY_F)
 	{
@@ -81,11 +79,12 @@ int	keymap02(int keycode, t_data *img)
 /*
 ** placeholder. actions for keycodes I, O, P, SPACE.
 */
-int	keymap03(int keycode, t_data *img)
+int	keymap03(int keycode, t_mlx *mlx)
 {
+	(void) mlx;
 	if (keycode == KEY_I)
 	{
-		return (img->wid);
+		return (0);
 	}
 	else if (keycode == KEY_O)
 	{

@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 20:09:00 by hmochida          #+#    #+#             */
-/*   Updated: 2023/01/14 20:29:33 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/01/14 22:14:14 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,15 @@ typedef struct	s_configs
 
 typedef struct	s_mlx
 {
-	void	*ctx_ptr;
+	void	*mlx_ptr;
 	void	*win_ptr;
 	void	*img_ptr;
 }	t_mlx;
 
 /* KEY PRESS CODES*/
+# ifndef X_KEYPRESS
+#  define X_KEYPRESS 2
+# endif //X_KEYPRESS
 # define KEY_ESC	65307
 # define KEY_Q		113
 # define KEY_E		101
@@ -56,6 +59,8 @@ typedef struct	s_mlx
 # define KEY_O		111
 # define KEY_P		122
 # define KEY_SPACE	32
+# define KEY_LEFT	65361
+# define KEY_RIGHT	65363
 # define RED_X		17
 
 #endif // CUB_DEFS_H
