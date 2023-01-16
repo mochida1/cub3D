@@ -6,7 +6,7 @@
 /*   By: viferrei <viferrei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 21:22:52 by viferrei          #+#    #+#             */
-/*   Updated: 2023/01/14 13:36:44 by viferrei         ###   ########.fr       */
+/*   Updated: 2023/01/16 20:23:03 by viferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ void	save_raw_setting(t_raw_map *map, char *line)
 	}
 }
 
-int	get_map_settings(t_raw_map *map)
+// Saves only the 6 settings lines into the array
+int	get_raw_map_settings(t_raw_map *map)
 {
 	int	line;
 	int	c;
@@ -48,9 +49,9 @@ int	get_map_settings(t_raw_map *map)
 				c++;
 			if (map->raw_map_data[line][c] == '#')
 				break ;
-			else if (invalid_setting(map->raw_map_data[line][c])) // is this the address to the char or the char itself?
+			else if (invalid_setting(map->raw_map_data[line][c]))
 				return (1);
-			save_raw_setting(map, map->raw_map_data[line][c]);
+			save_raw_setting(map, map->raw_map_data[line][c]); // is this the address to the char or the char itself?
 			c++;
 		}
 		line++;
