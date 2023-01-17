@@ -6,7 +6,7 @@
 /*   By: viferrei <viferrei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 21:22:52 by viferrei          #+#    #+#             */
-/*   Updated: 2023/01/16 20:23:03 by viferrei         ###   ########.fr       */
+/*   Updated: 2023/01/16 21:32:56 by viferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int	invalid_setting(char *line)
 		&& ft_strncmp(line, "WE ", 3) && ft_strncmp(line, "EA ", 3)
 		&& ft_strncmp(line, "F ", 2) && ft_strncmp(line, "C ", 2))
 		return (1);
+	// CHECK IF PATHS AND COLORS ARE VALID
 	return (0);
 }
 
@@ -57,4 +58,35 @@ int	get_raw_map_settings(t_raw_map *map)
 		line++;
 	}
 	return (0);
+}
+
+// checks if path to texture is valid and if so, saves it in the settgins struct
+int	get_texture(char *texture, char *line)
+{
+	char	**split_line;
+
+	split_line = ft_split(line, ' ');
+	texture = ft_substr(split_line[1], 0, ft_strlen(split_line[1]));
+	free_string_array(split_line);
+	return (0);
+}
+
+int	get_settings(t_settings *settings, char **raw_cfg)
+{
+	int	i;
+
+	i = 0;
+	while (raw_cfg[i])
+	{
+		if (!ft_strncmp(raw_cfg[i], "NO", 2))
+			get_texture(settings->north_texture, raw_cfg[i]); // should i use &(settings)
+		if (!ft_strncmp(raw_cfg[i], "SO", 2))
+			get_texture(settings->south_texture, raw_cfg[i]);
+		if (!ft_strncmp(raw_cfg[i], "WE", 2))
+			get_texture(settings->west_texture, raw_cfg[i]);
+		if (!ft_strncmp(raw_cfg[i], "EA", 2))
+			get_texture(settings->east_texture, raw_cfg[i]);
+		i++;
+	}
+	return 0;
 }

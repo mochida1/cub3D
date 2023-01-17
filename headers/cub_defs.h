@@ -6,12 +6,15 @@
 /*   By: viferrei <viferrei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 20:09:00 by hmochida          #+#    #+#             */
-/*   Updated: 2023/01/16 20:26:34 by viferrei         ###   ########.fr       */
+/*   Updated: 2023/01/16 21:04:01 by viferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB_DEFS_H
 # define CUB_DEFS_H
+
+# define SUCCESS 1
+# define FAIL 0
 
 typedef struct	s_raw_map
 {
