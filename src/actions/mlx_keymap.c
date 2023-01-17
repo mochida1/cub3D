@@ -6,96 +6,56 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 23:53:33 by hmochida          #+#    #+#             */
-/*   Updated: 2023/01/14 22:16:47 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/01/17 20:50:49 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
 /*
-** actions for keycodes ESC, Q, W, E
+** actions for keycodes ESC, Left and Right arrows.
 */
 int	keymap00(int keycode, t_mlx *mlx)
 {
 	if (keycode == KEY_ESC)
 		key_esc(mlx);
-	else if (keycode == KEY_E)
+	else if (keycode == KEY_LEFT)
 	{
+		printf("KEY: <- pressed\n");
+		return (0);
+	}
+	else if (keycode == KEY_RIGHT)
+	{
+		printf("KEY: -> pressed\n");
 		return (0);
 	}
 	return (1);
 }
 
 /*
-** placeholder. actions for keycodes A, S , D
+** placeholder. actions for keycodes W, A, S , D
 */
 int	keymap01(int keycode, t_mlx *mlx)
 {
 	(void) mlx;
 	if (keycode == KEY_A)
 	{
+		printf("KEY: A pressed\n");
 		return (0);
 	}
 	else if (keycode == KEY_S)
 	{
+		printf("KEY: S pressed\n");
 		return (0);
 	}
 	else if (keycode == KEY_D)
 	{
+		printf("KEY: D pressed\n");
 		return (0);
 	}
-		else if (keycode == KEY_W)
+	else if (keycode == KEY_W)
 	{
-		return (0);
-	}
-	return (1);
-}
-
-/*
-** placeholder. actions for keycodes R, F, Z, C
-*/
-int	keymap02(int keycode, t_mlx *mlx)
-{
-	(void) mlx;
-	if (keycode == KEY_R)
-	{
-		return (0);
-	}
-	else if (keycode == KEY_F)
-	{
-		return (0);
-	}
-	else if (keycode == KEY_Z)
-	{
-		return (0);
-	}
-	else if (keycode == KEY_C)
-	{
-		return (0);
-	}
-	return (1);
-}
-
-/*
-** placeholder. actions for keycodes I, O, P, SPACE.
-*/
-int	keymap03(int keycode, t_mlx *mlx)
-{
-	(void) mlx;
-	if (keycode == KEY_I)
-	{
-		return (0);
-	}
-	else if (keycode == KEY_O)
-	{
-		return (0);
-	}
-	else if (keycode == KEY_P)
-	{
-		return (0);
-	}
-	else if (keycode == KEY_SPACE)
-	{
+		printf("KEY: W pressed\n");
 		return (0);
 	}
 	return (1);
