@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 20:02:44 by hmochida          #+#    #+#             */
-/*   Updated: 2023/01/14 22:12:50 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/01/17 21:36:18 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,12 @@ int	main(int argc, char *argv[])
 	mlx->win_ptr = mlx_new_window(mlx->mlx_ptr, 800, 600, "Janella");
 	event_handler(mlx);
 
+	int i = 0;
+	while (map->raw_layout[i])
+	{
+		printf ("%s", map->raw_layout[i]);
+		i++;
+	}
 
 	mlx_loop(mlx->mlx_ptr);
 	map = destroy_map(map);
