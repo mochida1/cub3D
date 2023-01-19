@@ -6,7 +6,7 @@
 /*   By: viferrei <viferrei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 19:57:32 by hmochida          #+#    #+#             */
-/*   Updated: 2023/01/17 20:28:12 by viferrei         ###   ########.fr       */
+/*   Updated: 2023/01/18 20:33:43 by viferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ t_raw_map	*init_map(char *path_to_map);
 void		*destroy_map(t_raw_map *map);
 
 // get_map_settings.c
-int			get_map_setttings(t_raw_map *map);
+int			get_raw_map_settings(t_raw_map *map);
 int			get_settings(t_settings *settings, char **raw_cfg);
 
 #endif //CUB3D_H

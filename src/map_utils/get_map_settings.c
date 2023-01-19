@@ -6,18 +6,18 @@
 /*   By: viferrei <viferrei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 21:22:52 by viferrei          #+#    #+#             */
-/*   Updated: 2023/01/17 21:55:55 by viferrei         ###   ########.fr       */
+/*   Updated: 2023/01/18 21:15:57 by viferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
+/*
 int	invalid_color(char *line)
 {
-	/*
-	split by commas, check if rgb numbers are valid.
-	*/
+	// split by commas, check if rgb numbers are valid.
 }
+*/
 
 int	invalid_setting(char *raw_line)
 {
@@ -26,18 +26,18 @@ int	invalid_setting(char *raw_line)
 
 	line = ft_split(raw_line, ' ');
 	exit_code = 1;
-	if (line[0] == "NO" || line[0] == "SO"
-		|| line[0] == "WE" || line[0] == "EA")
+	if (!ft_strncmp(line[0], "NO", 2) || !ft_strncmp(line[0], "SO", 2)
+		|| !ft_strncmp(line[0], "WE", 2) || !ft_strncmp(line[0], "EA", 2))
 	{
 		exit_code = 0;
 		if (open(line[1], O_RDONLY) < 0)
 			exit_code = 2;
 	}
-	else if (line[0] == "F" || line[0] == "C")
+	else if (!ft_strncmp(line[0], "F", 1) || !ft_strncmp(line[0], "C", 1))
 	{
 		exit_code = 0;
-		if (invalid_color(line[1]))
-			exit_code = 3;
+//		if (invalid_color(line[1]))
+//			exit_code = 3;
 	}
 	free_string_array(line);
 	return (exit_code);
@@ -70,9 +70,9 @@ int	get_raw_map_settings(t_raw_map *map)
 				c++;
 			if (map->raw_map_data[line][c] == '#')
 				break ;
-			else if (invalid_setting(map->raw_map_data[line][c]))
+			else if (invalid_setting(&map->raw_map_data[line][c]))
 				return (1);
-			save_raw_setting(map, map->raw_map_data[line][c]); // is this the address to the char or the char itself?
+			save_raw_setting(map, &map->raw_map_data[line][c]); // is this the address to the char or the char itself?
 			c++;
 		}
 		line++;
