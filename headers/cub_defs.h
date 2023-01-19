@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 20:09:00 by hmochida          #+#    #+#             */
-/*   Updated: 2023/01/17 20:44:09 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/01/18 21:46:29 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,24 @@ typedef struct s_configs
 	char	ceiling_colour[3];
 }	t_configs;
 
+typedef struct s_img
+{
+	void	*img_ptr;
+	char	*data;
+	int		h;
+	int		w;
+	int		bpp;
+	int		sz_line;
+	int		endian;
+}	t_img;
+
+
 typedef struct s_mlx
 {
 	void	*mlx_ptr;
 	void	*win_ptr;
-	void	*img_ptr;
+	int		win_heigh;
+	int		win_width;
 }	t_mlx;
 
 /* KEY PRESS CODES*/
