@@ -6,7 +6,7 @@
 /*   By: viferrei <viferrei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 21:22:52 by viferrei          #+#    #+#             */
-/*   Updated: 2023/01/18 21:15:57 by viferrei         ###   ########.fr       */
+/*   Updated: 2023/01/19 21:54:05 by viferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,22 @@ int	invalid_color(char *line)
 }
 */
 
+/*
+//	Checks if line is a direction or color setting. If it's followed by a space
+//	and a valid link or RGB numbers.
+*/
 int	invalid_setting(char *raw_line)
 {
 	char	**line;
 	int		exit_code;
 
-	line = ft_split(raw_line, ' ');
+	line = ft_split(raw_line, ' '); // CREATE A SPLIT THAT CONSIDER TABS
 	exit_code = 1;
-	if (!ft_strncmp(line[0], "NO", 2) || !ft_strncmp(line[0], "SO", 2)
-		|| !ft_strncmp(line[0], "WE", 2) || !ft_strncmp(line[0], "EA", 2))
+	if (!ft_strncmp(raw_line, "NO", 2) || !ft_strncmp(raw_line, "SO", 2)
+		|| !ft_strncmp(raw_line, "WE", 2) || !ft_strncmp(raw_line, "EA", 2))
 	{
-		exit_code = 0;
+		if (ft_isspace(raw_line[2]))
+			exit_code = 0;
 		if (open(line[1], O_RDONLY) < 0)
 			exit_code = 2;
 	}
@@ -45,36 +50,44 @@ int	invalid_setting(char *raw_line)
 
 void	save_raw_setting(t_raw_map *map, char *line)
 {
-	static int	i = 0;
-	while (i < 7)
+	static int	index = 0;
+
+	while (index < 7)
 	{
-		map->raw_cfg[i] = line;
-		i++;
+		map->raw_cfg[index] = line;
+		index++;
+		break ;
 	}
 }
 
-// Saves only the 6 settings lines into the array
+/*
+//	Runs through lines ignoring initial spaces and saves the setting lines into
+//	the map->raw_cfg array
+*/
 int	get_raw_map_settings(t_raw_map *map)
 {
-	int	line;
-	int	c;
+	int		line;
+	int		c;
+	char	*line_start;
 
 	line = 0;
 	map->raw_cfg = calloc(7, sizeof(char *));
 	while (map->raw_map_data[line])
 	{
 		c = 0;
-		while(map->raw_map_data[line][c])
-		{
-			while(ft_isspace(map->raw_map_data[line][c]))
-				c++;
-			if (map->raw_map_data[line][c] == '#')
-				break ;
-			else if (invalid_setting(&map->raw_map_data[line][c]))
-				return (1);
-			save_raw_setting(map, &map->raw_map_data[line][c]); // is this the address to the char or the char itself?
+		line_start = NULL;
+		while(ft_isspace(map->raw_map_data[line][c]))
 			c++;
+		if (!line_start)
+			line_start = &(map->raw_map_data[line][c]);
+		if (line_start[0] == '#' || !line_start[0])
+		{
+			line++;
+			continue ;
 		}
+		else if (invalid_setting(line_start))
+			return (1);
+		save_raw_setting(map, line_start);
 		line++;
 	}
 	return (0);

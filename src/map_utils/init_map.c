@@ -6,7 +6,7 @@
 /*   By: viferrei <viferrei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 19:58:10 by hmochida          #+#    #+#             */
-/*   Updated: 2023/01/18 21:17:05 by viferrei         ###   ########.fr       */
+/*   Updated: 2023/01/19 21:29:09 by viferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ int	read_map_data(t_raw_map *map, char *path_to_map)
 
 int	get_raw_map_data(t_raw_map *map, char *path_to_map)
 {
+	int i = 0;
+
 	if (get_raw_map_size(map, path_to_map))
 	{
 		printf("error getting raw map data\n");
@@ -70,6 +72,11 @@ int	get_raw_map_data(t_raw_map *map, char *path_to_map)
 	}
 	if (get_raw_map_settings(map))
 	{
+		while (map->raw_cfg[i])
+		{
+			printf("%s\n", map->raw_cfg[i]);
+			i++;
+		}
 		printf("error getting map settings\n");
 		exit (1);
 	}
