@@ -6,7 +6,11 @@
 /*   By: viferrei <viferrei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 19:58:10 by hmochida          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2023/01/21 18:13:15 by viferrei         ###   ########.fr       */
+=======
+/*   Updated: 2023/01/14 18:58:37 by hmochida         ###   ########.fr       */
+>>>>>>> main
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,11 +72,15 @@ int	get_raw_map_data(t_raw_map *map, char *path_to_map)
 		printf("error reading raw map data\n");
 		exit (1);
 	}
+<<<<<<< HEAD
 	if (get_raw_map_settings(map))
 	{
 		printf("error getting map settings\n");
 		exit (1);
 	}
+=======
+	map_disassemble(map);
+>>>>>>> main
 	return (0);
 }
 
@@ -89,13 +97,17 @@ t_raw_map	*init_map(char *path_to_map)
 	map = ft_calloc(1, sizeof(t_raw_map));
 	settings = ft_calloc(1, sizeof(t_settings));
 	get_raw_map_data(map, path_to_map);
+<<<<<<< HEAD
 	get_settings(settings, map->raw_cfg);
+=======
+>>>>>>> main
 	return (map);
 }
 
 void	*destroy_map(t_raw_map *map)
 {
 	map->raw_map_data = free_string_array(map->raw_map_data);
+	map->raw_layout = free_string_array(map->raw_layout);
 	map = safe_free(map);
 	return (NULL);
 }
