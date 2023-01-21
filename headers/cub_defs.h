@@ -6,7 +6,7 @@
 /*   By: viferrei <viferrei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 20:09:00 by hmochida          #+#    #+#             */
-/*   Updated: 2023/01/21 18:01:49 by viferrei         ###   ########.fr       */
+/*   Updated: 2023/01/21 18:19:48 by viferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # define SUCCESS 1
 # define FAIL 0
 
-typedef struct	s_raw_map
+typedef struct s_raw_map
 {
 	char			**raw_map_data;
 	unsigned int	raw_map_size;
@@ -25,7 +25,7 @@ typedef struct	s_raw_map
 	char			**raw_layout;
 }	t_raw_map;
 
-typedef struct	s_settings
+typedef struct s_settings
 {
 	char	*north_texture;
 	char	*south_texture;

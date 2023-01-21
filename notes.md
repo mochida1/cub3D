@@ -10,7 +10,6 @@
 		- [ ] Error check:
 			- [X] Number not inbetween 0-255;
 			- [ ] Non-digits.
-			- [ ] Negative numbers;
 
 ### Error checking:
 - [ ] Map accepts only 8 possible characters: space, tab, 0 (empty space), 1 (wall) and only one of following: N, S, E, or W (player's start position and orientation).
