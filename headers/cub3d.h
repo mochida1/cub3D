@@ -6,11 +6,7 @@
 /*   By: viferrei <viferrei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 19:57:32 by hmochida          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2023/01/21 17:25:35 by viferrei         ###   ########.fr       */
-=======
-/*   Updated: 2023/01/14 18:56:52 by hmochida         ###   ########.fr       */
->>>>>>> main
+/*   Updated: 2023/01/21 18:51:32 by viferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +24,7 @@
 # include "cub_utils.h"
 # include "cub_defs.h"
 
-<<<<<<< HEAD
-// init_map.c
-=======
 /* MAP UTILS*/
->>>>>>> main
 t_raw_map	*init_map(char *path_to_map);
 void		*detroy_map(t_raw_map *map);
 void		map_disassemble(t_raw_map *map);
