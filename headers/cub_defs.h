@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 20:09:00 by hmochida          #+#    #+#             */
-/*   Updated: 2023/01/18 21:46:29 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/01/21 17:33:26 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ typedef struct s_img
 	int		bpp;
 	int		sz_line;
 	int		endian;
+	int		win_x;
+	int		win_y;
 }	t_img;
 
 
@@ -75,5 +77,19 @@ typedef struct s_mlx
 # define KEY_LEFT	65361
 # define KEY_RIGHT	65363
 # define RED_X		17
+
+/* COLOURS */
+# define C_WHITE	0xffffff
+# define C_BLACK	0x000000
+# define C_RED		0xff0000
+# define C_GREEN	0x00ff00
+# define C_BLUE		0x0000ff
+# define C_CYAN		0x00ffff
+# define C_MAGENTA	0xff00ff
+# define C_YELLOW	0xffff00
+# define C_LPINK	0xffa0ff
+# define C_LLPINK	0xffddff
+# define C_PURP		0x880088
+# define C_TEST		0x880088
 
 #endif // CUB_DEFS_H
