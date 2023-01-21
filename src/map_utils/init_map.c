@@ -6,7 +6,7 @@
 /*   By: viferrei <viferrei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 19:58:10 by hmochida          #+#    #+#             */
-/*   Updated: 2023/01/19 21:29:09 by viferrei         ###   ########.fr       */
+/*   Updated: 2023/01/21 18:13:15 by viferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,6 @@ int	read_map_data(t_raw_map *map, char *path_to_map)
 
 int	get_raw_map_data(t_raw_map *map, char *path_to_map)
 {
-	int i = 0;
-
 	if (get_raw_map_size(map, path_to_map))
 	{
 		printf("error getting raw map data\n");
@@ -72,11 +70,6 @@ int	get_raw_map_data(t_raw_map *map, char *path_to_map)
 	}
 	if (get_raw_map_settings(map))
 	{
-		while (map->raw_cfg[i])
-		{
-			printf("%s\n", map->raw_cfg[i]);
-			i++;
-		}
 		printf("error getting map settings\n");
 		exit (1);
 	}
@@ -92,18 +85,11 @@ t_raw_map	*init_map(char *path_to_map)
 {
 	t_raw_map	*map;
 	t_settings	*settings;
-	int			i;
 
 	map = ft_calloc(1, sizeof(t_raw_map));
 	settings = ft_calloc(1, sizeof(t_settings));
 	get_raw_map_data(map, path_to_map);
 	get_settings(settings, map->raw_cfg);
-	i = 0;
-	while (map->raw_map_data[i])
-	{
-		printf("%s", map->raw_map_data[i]);
-		i++;
-	}
 	return (map);
 }
 
