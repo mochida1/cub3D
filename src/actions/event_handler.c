@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 20:23:05 by hmochida          #+#    #+#             */
-/*   Updated: 2023/01/22 16:18:33 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/01/22 16:22:36 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,5 @@ void	event_handler(t_mlx *mlx)
 	printf("Registering MLX hooks\n");
 	mlx_key_hook(mlx->win_ptr, key_press, mlx);
 	mlx_hook(mlx->win_ptr, RED_X, 1L << 17, red_x_close, mlx);
-	mlx_expose_hook(mlx->win_ptr, &render_images, mlx);
+	mlx_expose_hook(mlx->win_ptr, render_images, mlx);
 }
