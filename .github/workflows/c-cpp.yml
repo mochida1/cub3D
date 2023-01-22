@@ -1,16 +1,16 @@
-name: C/C++ CI
+   name: C/C++ CI
 
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+   on:
+     push:
+       branches: [ main ]
+     pull_request:
+       branches: [ main ]
 
-jobs:
-  build:
-
-    runs-on: ubuntu-latest
-
-steps:
+   jobs:
+    build:
+      runs-on: ubuntu-latest
+      steps:
+      - name: checkout repo
+        uses: actions/checkout@v3.3
       - name: build application
-        run: make
+        run: make build
