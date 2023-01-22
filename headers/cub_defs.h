@@ -13,6 +13,11 @@
 #ifndef CUB_DEFS_H
 # define CUB_DEFS_H
 
+# ifndef SUCCESS
+#  define SUCCESS 1
+#  define FAIL 0
+# endif //SUCCESS
+
 typedef struct s_raw_map
 {
 	char			**raw_map_data;
@@ -23,15 +28,16 @@ typedef struct s_raw_map
 	char			**raw_layout;
 }	t_raw_map;
 
-typedef struct s_configs
+
+typedef struct s_settings
 {
 	char	*north_texture;
 	char	*south_texture;
 	char	*west_texture;
 	char	*east_texture;
-	char	floor_colour[3];
-	char	ceiling_colour[3];
-}	t_configs;
+	int		floor_color[3];
+	int		ceiling_color[3];
+}	t_settings;
 
 typedef struct s_mlx
 {

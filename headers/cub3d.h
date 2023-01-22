@@ -37,4 +37,12 @@ void		event_handler(t_mlx *mlx);
 int			red_x_close(t_mlx *mlx);
 void		key_esc(t_mlx *mlx);
 
+// get_map_settings.c
+int			get_raw_map_settings(t_raw_map *map);
+int			get_settings(t_settings *settings, char **raw_cfg);
+
+/* UTILS */
+char		**ft_split_spaces(char const *s);
+int			ft_strcmp(char *str, char *str2);
+
 #endif //CUB3D_H
