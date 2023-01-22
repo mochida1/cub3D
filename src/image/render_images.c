@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   event_handler.c                                    :+:      :+:    :+:   */
+/*   render_images.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/14 20:23:05 by hmochida          #+#    #+#             */
-/*   Updated: 2023/01/22 16:18:33 by hmochida         ###   ########.fr       */
+/*   Created: 2023/01/21 21:23:11 by hmochida          #+#    #+#             */
+/*   Updated: 2023/01/22 15:47:58 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	key_press(int keycode, t_mlx *mlx)
+void	render_images(t_mlx *mlx)
 {
-	int	i;
+	t_img	*temp;
 
-	i = 0;
-	i = keymap00(keycode, mlx);
-	if (i)
-		i = keymap01(keycode, mlx);
-	return (0);
-}
-
-void	event_handler(t_mlx *mlx)
-{
-	printf("Registering MLX hooks\n");
-	mlx_key_hook(mlx->win_ptr, key_press, mlx);
-	mlx_hook(mlx->win_ptr, RED_X, 1L << 17, red_x_close, mlx);
-	mlx_expose_hook(mlx->win_ptr, &render_images, mlx);
+	temp = mlx->img_list_head;
+	if (!temp)
+	{
+		write(2, "ERROR: render failed to get image list\n", 40);
+		exit (1);
+	}
+	mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
+	while (temp)
+	{
+		if (!temp->hide)
+			mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr,
+				temp->img_ptr, temp->win_x, temp->win_y);
+		temp = temp->next;
+	}
 }

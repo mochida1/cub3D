@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 20:09:00 by hmochida          #+#    #+#             */
-/*   Updated: 2023/01/17 20:44:09 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/01/21 20:02:18 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,31 @@ typedef struct s_settings
 	int		ceiling_color[3];
 }	t_settings;
 
+typedef struct s_img
+{
+	char		*label;
+	void		*img_ptr;
+	char		*data;
+	char		hide;
+	int			index;
+	int			h;
+	int			w;
+	int			bpp;
+	int			sz_line;
+	int			endian;
+	int			win_x;
+	int			win_y;
+	void		*next;
+}	t_img;
+
+
 typedef struct s_mlx
 {
 	void	*mlx_ptr;
 	void	*win_ptr;
-	void	*img_ptr;
+	int		win_heigh;
+	int		win_width;
+	t_img	*img_list_head;
 }	t_mlx;
 
 /* KEY PRESS CODES*/
@@ -68,5 +88,25 @@ typedef struct s_mlx
 # define KEY_LEFT	65361
 # define KEY_RIGHT	65363
 # define RED_X		17
+
+/* COLOURS */
+# define C_WHITE	0xffffff
+# define C_BLACK	0x000000
+# define C_RED		0xff0000
+# define C_GREEN	0x00ff00
+# define C_BLUE		0x0000ff
+# define C_CYAN		0x00ffff
+# define C_MAGENTA	0xff00ff
+# define C_YELLOW	0xffff00
+# define C_LPINK	0xffa0ff
+# define C_LLPINK	0xffddff
+# define C_PURP		0x880088
+# define C_TEST		0xFFFFFF
+
+/* ---------CONFIGS--------- */
+# define MM_SCALE	2
+/* MINIMAP COORDS */
+# define MINIMAP_X	50
+# define MINIMAP_Y	50
 
 #endif // CUB_DEFS_H
