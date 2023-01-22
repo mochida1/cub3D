@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 20:09:00 by hmochida          #+#    #+#             */
-/*   Updated: 2023/01/21 17:33:26 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/01/21 20:02:18 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,19 @@ typedef struct s_configs
 
 typedef struct s_img
 {
-	void	*img_ptr;
-	char	*data;
-	int		h;
-	int		w;
-	int		bpp;
-	int		sz_line;
-	int		endian;
-	int		win_x;
-	int		win_y;
+	char		*label;
+	void		*img_ptr;
+	char		*data;
+	char		hide;
+	int			index;
+	int			h;
+	int			w;
+	int			bpp;
+	int			sz_line;
+	int			endian;
+	int			win_x;
+	int			win_y;
+	void		*next;
 }	t_img;
 
 
@@ -53,6 +57,7 @@ typedef struct s_mlx
 	void	*win_ptr;
 	int		win_heigh;
 	int		win_width;
+	t_img	*img_list_head;
 }	t_mlx;
 
 /* KEY PRESS CODES*/
@@ -90,6 +95,12 @@ typedef struct s_mlx
 # define C_LPINK	0xffa0ff
 # define C_LLPINK	0xffddff
 # define C_PURP		0x880088
-# define C_TEST		0x880088
+# define C_TEST		0xFFFFFF
+
+/* ---------CONFIGS--------- */
+# define MM_SCALE	2
+/* MINIMAP COORDS */
+# define MINIMAP_X	50
+# define MINIMAP_Y	50
 
 #endif // CUB_DEFS_H

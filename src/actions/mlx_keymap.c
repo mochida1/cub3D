@@ -6,11 +6,12 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 23:53:33 by hmochida          #+#    #+#             */
-/*   Updated: 2023/01/17 20:50:49 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/01/21 20:52:11 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+#include "test.h"
 
 /*
 ** actions for keycodes ESC, Left and Right arrows.

@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub_utils.h                                        :+:      :+:    :+:   */
+/*   test.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/10 20:17:31 by hmochida          #+#    #+#             */
-/*   Updated: 2023/01/21 20:42:33 by hmochida         ###   ########.fr       */
+/*   Created: 2023/01/21 18:37:41 by hmochida          #+#    #+#             */
+/*   Updated: 2023/01/21 18:37:59 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB_UTILS_H
-# define CUB_UTILS_H
+#ifndef TEST_H
+# define TEST_H
 
-void	*safe_free(void *content);
-void	*free_string_array(char	**pp);
-int		ft_strcmp(char *str, char *str2);
+void	render_miniplayer(t_mlx *mlx, t_img *img, int miniplayer_x, int miniplayer_y);
 
-#endif //CUB_UTILS_H
+#endif

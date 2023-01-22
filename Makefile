@@ -6,7 +6,7 @@ BUILDDIR = objs
 LIBFT_DIR = libft
 LLIBS =  -lmlx -lXext -lX11
 LIBFT = $(LIBFT_DIR)/libft.a
-VPATH = src tests src/utils src/main src/map_utils src/actions
+VPATH = src tests src/utils src/main src/map_utils src/actions src/image
 
 # headers
 INCLUDES = -I ./headers
@@ -15,11 +15,13 @@ INCLUDES = -I ./headers
 MAIN		=	main.c
 UTILS		=	safe_free.c ft_strcmp.c
 MAP_UTILS	=	init_map.c map_disassemble.c get_map_raw_layout.c
-ACTIONS		= 	key_esc.c mlx_keymap.c event_handler.c
+ACTIONS		=	key_esc.c mlx_keymap.c event_handler.c
+IMAGE		=	putpix.c putsquare.c render_images.c image_draw0.c image_list.c
 TEST_LIST	=
 
 # Names sources
-SOURCES = $(MAIN) $(UTILS) $(MAP_UTILS) $(ACTIONS) $(TEST_LIST)
+SOURCES =	$(MAIN) $(UTILS) $(MAP_UTILS) $(ACTIONS) $(IMAGE)\
+			$(TEST_LIST)
 
 # Names objects
 OBJS = $(addprefix $(BUILDDIR)/, $(SOURCES:%.c=%.o))
