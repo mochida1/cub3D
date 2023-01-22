@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 21:21:43 by hmochida          #+#    #+#             */
-/*   Updated: 2023/01/21 21:25:29 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/01/22 15:45:32 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 void	ft_mlx_putsquare_purp(int x, int y, int size, t_img *img)
 {
 	int	xi;
-	int yi;
+	int	yi;
 
 	xi = 0;
 	yi = 0;
@@ -38,7 +38,7 @@ void	ft_mlx_putsquare_purp(int x, int y, int size, t_img *img)
 void	ft_mlx_putsquare_llpink(int x, int y, int size, t_img *img)
 {
 	int	xi;
-	int yi;
+	int	yi;
 
 	xi = 0;
 	yi = 0;
@@ -57,7 +57,7 @@ void	ft_mlx_putsquare_llpink(int x, int y, int size, t_img *img)
 void	ft_mlx_putsquare_red(int x, int y, int size, t_img *img)
 {
 	int	xi;
-	int yi;
+	int	yi;
 
 	xi = 0;
 	yi = 0;
@@ -76,7 +76,7 @@ void	ft_mlx_putsquare_red(int x, int y, int size, t_img *img)
 void	ft_mlx_putsquare_green(int x, int y, int size, t_img *img)
 {
 	int	xi;
-	int yi;
+	int	yi;
 
 	xi = 0;
 	yi = 0;

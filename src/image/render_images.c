@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 21:23:11 by hmochida          #+#    #+#             */
-/*   Updated: 2023/01/21 21:46:50 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/01/22 15:47:58 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	render_images(t_mlx *mlx)
 {
-	t_img *temp;
+	t_img	*temp;
 
 	temp = mlx->img_list_head;
 	if (!temp)
@@ -26,7 +26,8 @@ void	render_images(t_mlx *mlx)
 	while (temp)
 	{
 		if (!temp->hide)
-			mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, temp->img_ptr, temp->win_x, temp->win_y);
+			mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr,
+				temp->img_ptr, temp->win_x, temp->win_y);
 		temp = temp->next;
 	}
 }
