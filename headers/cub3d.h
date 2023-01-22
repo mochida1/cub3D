@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 19:57:32 by hmochida          #+#    #+#             */
-/*   Updated: 2023/01/21 21:42:33 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/01/22 16:17:45 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,13 @@ t_img	*ft_mlx_init_image(t_mlx *mlx, unsigned int x, unsigned int y, char *label
 int		ft_mlx_add_to_img_list(t_mlx *mlx, t_img *img);
 int		ft_mlx_img_list_total_index(t_mlx *mlx);
 void	*ft_mlx_get_image_by_label(t_mlx *mlx, char *label);
+
+// get_map_settings.c
+int			get_raw_map_settings(t_raw_map *map);
+int			get_settings(t_settings *settings, char **raw_cfg);
+
+/* UTILS */
+char		**ft_split_spaces(char const *s);
+int			ft_strcmp(char *str, char *str2);
 
 #endif //CUB3D_H

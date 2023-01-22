@@ -13,9 +13,10 @@ INCLUDES = -I ./headers
 
 # Lists sources. Manually because of norm...
 MAIN		=	main.c
-UTILS		=	safe_free.c ft_strcmp.c
-MAP_UTILS	=	init_map.c map_disassemble.c get_map_raw_layout.c
-ACTIONS		=	key_esc.c mlx_keymap.c event_handler.c
+UTILS		=	safe_free.c ft_strcmp.c ft_split_spaces.c
+MAP_UTILS	=	init_map.c map_disassemble.c get_map_raw_layout.c \
+				get_raw_map_settings.c get_settings.c
+ACTIONS		= 	key_esc.c mlx_keymap.c event_handler.c
 IMAGE		=	putpix.c putsquare.c render_images.c image_draw0.c image_list.c
 TEST_LIST	=
 
