@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 18:53:48 by hmochida          #+#    #+#             */
-/*   Updated: 2023/01/14 18:57:17 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/01/17 22:00:50 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,16 @@ static int	init_raw_map_layout(t_raw_map *map, int line)
 	map->raw_layout = ft_calloc(map->raw_layout_size + 1, sizeof(char *));
 	while (map->raw_layout_size > index)
 	{
+		if (map->raw_map_data[index + line][0] == '#')
+		{
+			index++;
+			continue ;
+		}
+		if (map->raw_map_data[index + line][0] == '\n')
+		{
+			index++;
+			continue ;
+		}
 		map->raw_layout[index] = ft_strdup(map->raw_map_data[index + line]);
 		if (!map->raw_map_data)
 			return (1);
