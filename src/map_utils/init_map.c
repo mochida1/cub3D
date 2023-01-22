@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   init_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: viferrei <viferrei@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 19:58:10 by hmochida          #+#    #+#             */
 /*   Updated: 2023/01/21 18:51:39 by viferrei         ###   ########.fr       */
@@ -86,6 +86,7 @@ t_raw_map	*init_map(char *path_to_map)
 {
 	t_raw_map	*map;
 	t_settings	*settings;
+
 
 	map = ft_calloc(1, sizeof(t_raw_map));
 	settings = ft_calloc(1, sizeof(t_settings));

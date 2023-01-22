@@ -3,18 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   cub_defs.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: viferrei <viferrei@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 20:09:00 by hmochida          #+#    #+#             */
-/*   Updated: 2023/01/21 18:51:42 by viferrei         ###   ########.fr       */
+/*   Updated: 2023/01/17 20:44:09 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB_DEFS_H
 # define CUB_DEFS_H
 
-# define SUCCESS 1
-# define FAIL 0
+# ifndef SUCCESS
+#  define SUCCESS 1
+#  define FAIL 0
+# endif //SUCCESS
 
 typedef struct s_raw_map
 {
@@ -26,6 +28,7 @@ typedef struct s_raw_map
 	char			**raw_layout;
 }	t_raw_map;
 
+
 typedef struct s_settings
 {
 	char	*north_texture;
@@ -35,5 +38,35 @@ typedef struct s_settings
 	int		floor_color[3];
 	int		ceiling_color[3];
 }	t_settings;
+
+typedef struct s_mlx
+{
+	void	*mlx_ptr;
+	void	*win_ptr;
+	void	*img_ptr;
+}	t_mlx;
+
+/* KEY PRESS CODES*/
+# ifndef X_KEYPRESS
+#  define X_KEYPRESS 2
+# endif //X_KEYPRESS
+# define KEY_ESC	65307
+# define KEY_W		119
+# define KEY_A		97
+# define KEY_S		115
+# define KEY_D		100
+# define KEY_Q		113
+# define KEY_E		101
+# define KEY_R		114
+# define KEY_F		102
+# define KEY_Z		122
+# define KEY_C		99
+# define KEY_I		105
+# define KEY_O		111
+# define KEY_P		122
+# define KEY_SPACE	32
+# define KEY_LEFT	65361
+# define KEY_RIGHT	65363
+# define RED_X		17
 
 #endif // CUB_DEFS_H
