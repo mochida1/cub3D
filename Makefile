@@ -16,12 +16,13 @@ MAIN		=	main.c
 UTILS		=	safe_free.c ft_strcmp.c ft_split_spaces.c
 MAP_UTILS	=	init_map.c map_disassemble.c get_map_raw_layout.c \
 				get_raw_map_settings.c get_settings.c
+PARSING		=	input_parsing.c
 ACTIONS		= 	key_esc.c mlx_keymap.c event_handler.c
 IMAGE		=	putpix.c putsquare.c render_images.c image_draw0.c image_list.c
 TEST_LIST	=
 
 # Names sources
-SOURCES =	$(MAIN) $(UTILS) $(MAP_UTILS) $(ACTIONS) $(IMAGE)\
+SOURCES =	$(MAIN) $(UTILS) $(MAP_UTILS) $(PARSING) $(ACTIONS) $(IMAGE)\
 			$(TEST_LIST)
 
 # Names objects

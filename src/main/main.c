@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
+/*   By: viferrei <viferrei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 20:02:44 by hmochida          #+#    #+#             */
-/*   Updated: 2023/01/22 16:18:41 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/01/25 13:07:49 by viferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int	main(int argc, char *argv[])
 	t_raw_map	*map;
 	t_mlx		*mlx;
 
+	input_parsing(argc, argv);
 	map = init_map("map.cub");
 	mlx = ft_calloc(1, sizeof(t_mlx));
 	mlx->mlx_ptr = mlx_init();
