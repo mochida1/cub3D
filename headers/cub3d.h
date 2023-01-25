@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
+/*   By: viferrei <viferrei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 19:57:32 by hmochida          #+#    #+#             */
-/*   Updated: 2023/01/22 16:24:10 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/01/25 17:25:19 by viferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,9 @@ void	*ft_mlx_get_image_by_label(t_mlx *mlx, char *label);
 // get_map_settings.c
 int			get_raw_map_settings(t_raw_map *map);
 int			get_settings(t_settings *settings, char **raw_cfg);
+
+/* PARSING */
+int	input_parsing(int argc, char **argv);
 
 /* UTILS */
 char		**ft_split_spaces(char const *s);
