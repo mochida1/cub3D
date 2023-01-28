@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 20:09:00 by hmochida          #+#    #+#             */
-/*   Updated: 2023/01/24 21:53:39 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/01/28 16:58:19 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ typedef struct s_raw_map
 	char			**raw_cfg;
 	char			**raw_layout;
 }	t_raw_map;
-
 
 typedef struct s_settings
 {
@@ -55,7 +54,6 @@ typedef struct s_img
 	int			win_y;
 	void		*next;
 }	t_img;
-
 
 typedef struct s_mlx
 {
