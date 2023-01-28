@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 19:58:10 by hmochida          #+#    #+#             */
-/*   Updated: 2023/01/22 16:08:33 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/01/27 20:43:11 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,8 +89,9 @@ t_raw_map	*init_map(char *path_to_map)
 
 
 	map = ft_calloc(1, sizeof(t_raw_map));
-	settings = ft_calloc(1, sizeof(t_settings));
 	get_raw_map_data(map, path_to_map);
+	validate_map(map);
+	settings = ft_calloc(1, sizeof(t_settings));
 	get_settings(settings, map->raw_cfg);
 	return (map);
 }
