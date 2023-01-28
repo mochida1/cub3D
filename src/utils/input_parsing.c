@@ -3,25 +3,48 @@
 /*                                                        :::      ::::::::   */
 /*   input_parsing.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: viferrei <viferrei@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 13:10:32 by viferrei          #+#    #+#             */
-/*   Updated: 2023/01/25 17:57:08 by viferrei         ###   ########.fr       */
+/*   Updated: 2023/01/28 17:38:50 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
+static void	validate_argc(int argc)
+{
+	if (argc > 2)
+	{
+		printf("ERROR: cub3d must receive only 1 argument\n");
+		exit (1);
+	}
+	if (argc == 1)
+	{
+		printf("ERROR: cub3d must receive only 1 argument\n");
+		exit (1);
+	}
+}
+
+static void	validate_file(char *argv)
+{
+	int	fd;
+
+	fd = open(argv, O_RDONLY);
+	if (fd < 0)
+	{
+		perror("input file");
+		exit (1);
+	}
+	close(fd);
+}
+
 int	input_parsing(int argc, char **argv)
 {
 	char	*suffix;
 	int		i;
-	
-	if (argc > 2)
-	{
-		printf("error: cub3d must receive only 1 argument\n");
-		exit (1);
-	}
+
+	validate_argc(argc);
 	suffix = NULL;
 	i = 0;
 	while (argv[1][i])
@@ -36,12 +59,8 @@ int	input_parsing(int argc, char **argv)
 			printf("error: input must be a '.cub' file\n");
 			exit (1);
 		}
-		else if (open(argv[1], O_RDONLY) < 0)
-		{
-			perror("input file");
-			exit (1);
-		}
 		i++;
 	}
+	validate_file(argv[1]);
 	return (0);
 }
