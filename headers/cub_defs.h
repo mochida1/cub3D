@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 20:09:00 by hmochida          #+#    #+#             */
-/*   Updated: 2023/01/28 16:58:19 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/01/28 20:58:26 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,19 @@
 
 # ifndef SUCCESS
 #  define SUCCESS 1
-#  define FAIL 0
 # endif //SUCCESS
+
+# ifndef FAIL
+#  define FAIL 0
+# endif
+
+# ifndef FALSE
+#  define FALSE 0
+# endif //FALSE
+
+# ifndef TRUE
+#  define TRUE 1
+# endif //TRUE
 
 typedef struct s_raw_map
 {
@@ -55,13 +66,43 @@ typedef struct s_img
 	void		*next;
 }	t_img;
 
+typedef struct s_cube
+{
+	double	posx;
+	double	posy;
+	double	dirx;
+	double	diry;
+	double	planex;
+	double	planey;
+	double	camera;
+	double	mapx;
+	double	mapy;
+	double	ray_dirx;
+	double	ray_diry;
+	double	side_distx;
+	double	side_disty;
+	double	delta_x;
+	double	delta_y;
+	double	perp_dist;
+	int		stepx;
+	int		stepy;
+	int		side;
+	int		wall_h;
+	int		wall_start;
+	int		wall_end;
+	int		color;
+}	t_cube;
+
 typedef struct s_mlx
 {
-	void	*mlx_ptr;
-	void	*win_ptr;
-	int		win_heigh;
-	int		win_width;
-	t_img	*img_list_head;
+	void		*mlx_ptr;
+	void		*win_ptr;
+	int			win_heigh;
+	int			win_width;
+	t_img		*img_list_head;
+	t_cube		*cu;
+	t_raw_map	*map;
+	t_settings	*settings;
 }	t_mlx;
 
 /* KEY PRESS CODES*/
@@ -102,9 +143,17 @@ typedef struct s_mlx
 # define C_TEST		0xFFFFFF
 
 /* ---------CONFIGS--------- */
-# define MM_SCALE	2
+# define WINDOW_W	640
+# define WINDOW_H	480
+# define PLANE_DIST	0.66
+# define MM_SCALE	2 // minimap scaling factor
 /* MINIMAP COORDS */
 # define MINIMAP_X	50
 # define MINIMAP_Y	50
+
+/* --------CONSTANTS--------- */
+#define COS5DEG		0.99619469809
+#define SIN5DEG		0.08715574274
+#define MOVESPEED	0.1
 
 #endif // CUB_DEFS_H
