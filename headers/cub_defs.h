@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub_defs.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
+/*   By: viferrei <viferrei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 20:09:00 by hmochida          #+#    #+#             */
-/*   Updated: 2023/01/28 16:58:19 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/02/01 20:59:53 by viferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,8 @@ typedef struct s_mlx
 
 /* ---------CONFIGS--------- */
 # define MM_SCALE	2
+# define WIDTH		800
+# define HEIGHT		600
 /* MINIMAP COORDS */
 # define MINIMAP_X	50
 # define MINIMAP_Y	50

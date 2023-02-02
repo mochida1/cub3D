@@ -6,7 +6,7 @@
 /*   By: viferrei <viferrei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 20:02:44 by hmochida          #+#    #+#             */
-/*   Updated: 2023/01/28 16:59:50 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/02/01 20:40:30 by viferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int argc, char *argv[])
 	map = init_map("map.cub");
 	mlx = ft_calloc(1, sizeof(t_mlx));
 	mlx->mlx_ptr = mlx_init();
-	mlx->win_ptr = mlx_new_window(mlx->mlx_ptr, 800, 600, "Janella");
+	mlx->win_ptr = mlx_new_window(mlx->mlx_ptr, WIDTH, HEIGHT, "Janella");
 	ft_mlx_init_image(mlx, map->raw_map_max_len * 2, map->raw_layout_size * 2, "minimap");
 	ft_mlx_init_image(mlx, MM_SCALE, MM_SCALE, "miniplayer");
 	img_minimap(ft_mlx_get_image_by_label(mlx, "minimap"), map);
