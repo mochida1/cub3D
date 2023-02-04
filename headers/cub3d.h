@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: viferrei <viferrei@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 19:57:32 by hmochida          #+#    #+#             */
-/*   Updated: 2023/01/28 16:59:13 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/01/29 18:44:55 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,15 @@
 # include <errno.h>		// perror
 # include <string.h>		// strerror
 # include <mlx.h>		//mlx sutff
+# include <math.h>		// fabs
 
 # include "../libft/libft.h"
 # include "cub_utils.h"
 # include "cub_defs.h"
 # include "cub_mlx_keymap.h"
+
+/*TESTE*/
+void	img_cub(t_mlx *mlx);
 
 /* MAP UTILS */
 t_raw_map	*init_map(char *path_to_map);

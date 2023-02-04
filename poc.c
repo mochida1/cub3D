@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 21:03:02 by hmochida          #+#    #+#             */
-/*   Updated: 2023/01/28 19:04:56 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/02/04 16:37:45 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -280,9 +280,7 @@ int	keymap01(int keycode, t_mlx *mlx)
 			posX += mv_dirX * MOVESPEED;
 		if(worldMap[(int)posX][(int)(posY + mv_dirY * (MOVESPEED * 1.1 ))] == FALSE)
 			posY += mv_dirY * MOVESPEED;
-		memset((char *)mlx->img_list_head->data, 0, mlx->img_list_head->w * mlx->img_list_head->h * mlx->img_list_head->bpp / 8);
 		create_image(mlx);
-		// mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
 		mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img_list_head->img_ptr, 0, 0);
 		return (0);
 	}
@@ -292,9 +290,7 @@ int	keymap01(int keycode, t_mlx *mlx)
 			posX += dirX * - MOVESPEED;
 		if(worldMap[(int)posX][(int)(posY + dirY * -1 * (MOVESPEED * 1.1 ))] == FALSE)
 			posY += dirY * - MOVESPEED;
-		memset((char *)mlx->img_list_head->data, 0, mlx->img_list_head->w * mlx->img_list_head->h * mlx->img_list_head->bpp / 8);
 		create_image(mlx);
-		// mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
 		mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img_list_head->img_ptr, 0, 0);
 		return (0);
 	}
@@ -309,9 +305,7 @@ int	keymap01(int keycode, t_mlx *mlx)
 			posX += mv_dirX * -MOVESPEED;
 		if(worldMap[(int)posX][(int)(posY + mv_dirY * -1 * (MOVESPEED * 1.1 ))] == FALSE)
 			posY += mv_dirY * -MOVESPEED;
-		memset((char *)mlx->img_list_head->data, 0, mlx->img_list_head->w * mlx->img_list_head->h * mlx->img_list_head->bpp / 8);
 		create_image(mlx);
-		// mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
 		mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img_list_head->img_ptr, 0, 0);
 		return (0);
 	}
@@ -321,9 +315,7 @@ int	keymap01(int keycode, t_mlx *mlx)
 			posX += dirX * MOVESPEED;
 		if(worldMap[(int)posX][(int)(posY + dirY * (MOVESPEED * 1.1 ))] == FALSE)
 			posY += dirY * MOVESPEED;
-		memset((char *)mlx->img_list_head->data, 0, mlx->img_list_head->w * mlx->img_list_head->h * mlx->img_list_head->bpp / 8);
 		create_image(mlx);
-		// mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
 		mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img_list_head->img_ptr, 0, 0);
 		return (0);
 	}
@@ -384,3 +376,5 @@ void	ft_mlx_putpix(int x, int y, int color, t_img *img)
 	dst = img->data + (y * img->sz_line + x * (img->bpp / 8));
 	*(unsigned int *) dst = color;
 }
+		printf("IMAGE: %s ", temp->label);
+		printf("winx: %d winy: %d\n", temp->win_x, temp->win_y);

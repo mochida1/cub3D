@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 20:09:00 by hmochida          #+#    #+#             */
-/*   Updated: 2023/01/28 20:58:26 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/02/04 16:08:46 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,15 +141,16 @@ typedef struct s_mlx
 # define C_LLPINK	0xffddff
 # define C_PURP		0x880088
 # define C_TEST		0xFFFFFF
+# define C_BROWN	0x3d251e
 
 /* ---------CONFIGS--------- */
-# define WINDOW_W	640
+# define WINDOW_W	600
 # define WINDOW_H	480
 # define PLANE_DIST	0.66
 # define MM_SCALE	2 // minimap scaling factor
 /* MINIMAP COORDS */
-# define MINIMAP_X	50
-# define MINIMAP_Y	50
+# define MINIMAP_X	5
+# define MINIMAP_Y	10
 
 /* --------CONSTANTS--------- */
 #define COS5DEG		0.99619469809
