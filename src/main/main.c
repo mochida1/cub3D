@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 20:02:44 by hmochida          #+#    #+#             */
-/*   Updated: 2023/02/04 18:47:54 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/02/04 19:19:09 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -358,7 +358,7 @@ int	main(int argc, char *argv[])
 		y++;
 	}
 	ft_mlx_init_image(mlx, WINDOW_W, WINDOW_H, "cube");
-	ft_mlx_init_image(mlx, map->raw_layout_size * 2, (map->raw_map_max_len - 1) * 2, "minimap");
+	ft_mlx_init_image(mlx, (map->raw_map_max_len - 1) * 2, map->raw_layout_size * 2, "minimap");
 	ft_mlx_init_image(mlx, MM_SCALE, MM_SCALE, "miniplayer");
 	init_cu(mlx);
 	img_minimap(ft_mlx_get_image_by_label(mlx, "minimap"), map);
