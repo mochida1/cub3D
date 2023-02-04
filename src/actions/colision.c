@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 17:37:58 by hmochida          #+#    #+#             */
-/*   Updated: 2023/02/04 18:00:41 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/02/04 18:04:42 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	colision_a(t_mlx *mlx, double mv_diry, double mv_dirx)
 	return (ret);
 }
 
-int	colision_s(t_mlx *mlx, double mv_diry, double mv_dirx)
+int	colision_s(t_mlx *mlx)
 {
 	int	ret;
 
@@ -52,7 +52,7 @@ int	colision_d(t_mlx *mlx, double mv_diry, double mv_dirx)
 	return (ret);
 }
 
-int	colision_w(t_mlx *mlx, double mv_diry, double mv_dirx)
+int	colision_w(t_mlx *mlx)
 {
 	int	ret;
 
