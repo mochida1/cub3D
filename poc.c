@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 21:03:02 by hmochida          #+#    #+#             */
-/*   Updated: 2023/02/04 16:37:45 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/02/04 17:38:19 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -298,8 +298,8 @@ int	keymap01(int keycode, t_mlx *mlx)
 	{
 		double	mv_dirX;
 		double	mv_dirY;
-		mv_dirX = dirX * 0 - dirY * 1;
 		mv_dirY = dirX * 1 + dirY * 0;
+		mv_dirX = dirX * 0 - dirY * 1;
 
 		if(worldMap[(int)(posX + mv_dirX * -1 * (MOVESPEED * 1.1 ))][(int)posY] == FALSE)
 			posX += mv_dirX * -MOVESPEED;

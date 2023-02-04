@@ -19,7 +19,7 @@ MAP_UTILS	=	init_map.c map_disassemble.c get_map_raw_layout.c \
 				get_raw_map_settings.c get_settings.c map_validation.c \
 				map_checks.c map_checks_line.c
 PARSING		=	input_parsing.c
-ACTIONS		= 	key_esc.c mlx_keymap.c event_handler.c
+ACTIONS		= 	key_esc.c mlx_keymap.c event_handler.c colision.c
 IMAGE		=	putpix.c putsquare.c render_images.c image_draw0.c image_list.c
 CLEANUP		=	freedom.c
 TEST_LIST	=

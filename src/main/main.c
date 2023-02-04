@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 20:02:44 by hmochida          #+#    #+#             */
-/*   Updated: 2023/02/04 16:25:52 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/02/04 16:58:59 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -345,6 +345,12 @@ int	main(int argc, char *argv[])
 	mlx->mlx_ptr = mlx_init();
 	mlx->win_ptr = mlx_new_window(mlx->mlx_ptr, WINDOW_W, WINDOW_H, "Janella");
 	mlx->map = map;
+	int y = 0;
+	while(mlx->map->raw_layout[y] != 0)
+	{
+		printf("%s", mlx->map->raw_layout[y]);
+		y++;
+	}
 	ft_mlx_init_image(mlx, WINDOW_W, WINDOW_H, "cube");
 	ft_mlx_init_image(mlx, map->raw_layout_size * 2, (map->raw_map_max_len - 1) * 2, "minimap");
 	ft_mlx_init_image(mlx, MM_SCALE, MM_SCALE, "miniplayer");
