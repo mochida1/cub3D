@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 20:09:00 by hmochida          #+#    #+#             */
-/*   Updated: 2023/02/04 18:04:30 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/02/04 18:49:29 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,7 +144,7 @@ typedef struct s_mlx
 # define C_BROWN	0x3d251e
 
 /* ---------CONFIGS--------- */
-# define WINDOW_W	600
+# define WINDOW_W	640
 # define WINDOW_H	480
 # define PLANE_DIST	0.66
 # define MM_SCALE	2 // minimap scaling factor

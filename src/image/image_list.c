@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 21:31:26 by hmochida          #+#    #+#             */
-/*   Updated: 2023/01/29 16:51:13 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/02/04 19:17:12 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ t_img	*ft_mlx_init_image(t_mlx *mlx, unsigned int x,
 	img = ft_calloc(1, sizeof(t_img));
 	img->h = y;
 	img->w = x;
-	img->img_ptr = mlx_new_image(mlx->mlx_ptr, img->h, img->w);
+	img->img_ptr = mlx_new_image(mlx->mlx_ptr, img->w, img->h);
 	img->label = label;
 	img->data = mlx_get_data_addr(img->img_ptr, &img->bpp, &img->sz_line,
 			&img->endian);

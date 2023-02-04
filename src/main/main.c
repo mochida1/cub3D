@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 20:02:44 by hmochida          #+#    #+#             */
-/*   Updated: 2023/02/04 16:58:59 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/02/04 18:47:54 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,11 @@
 
 void	get_starting_direction(t_mlx *mlx, char c)
 {
+	if (c == 'W')
+	{
+		mlx->cu->dirx = -1;
+		mlx->cu->diry = 0;
+	}
 	if (c == 'S')
 	{
 		mlx->cu->dirx = 0;
@@ -34,11 +39,6 @@ void	get_starting_direction(t_mlx *mlx, char c)
 	if (c == 'E')
 	{
 		mlx->cu->dirx = 1;
-		mlx->cu->diry = 0;
-	}
-	if (c == 'W')
-	{
-		mlx->cu->dirx = -1;
 		mlx->cu->diry = 0;
 	}
 }
@@ -56,8 +56,8 @@ void	get_starting_position(t_mlx *mlx)
 		{
 			if(!int_strrchr("NSWE", mlx->map->raw_layout[line][col]))
 			{
-				mlx->cu->posx = col + 0.5; // coordenadas estranhas
-				mlx->cu->posy = line + 0.5; // coordenadas estranhas
+				mlx->cu->posx = col + 0.5;
+				mlx->cu->posy = line + 0.5;
 				get_starting_direction(mlx, mlx->map->raw_layout[line][col]);
 				return ;
 			}
@@ -112,7 +112,7 @@ void setup_ray_x_dir(t_mlx *mlx)
 	else
 	{
 		mlx->cu->stepx = 1;
-		mlx->cu->side_distx = (mlx->cu->posx + 1 - mlx->cu->mapx) * mlx->cu->delta_x;
+		mlx->cu->side_distx = (mlx->cu->mapx + 1 - mlx->cu->posx ) * mlx->cu->delta_x;
 	}
 }
 
@@ -126,7 +126,7 @@ void setup_ray_y_dir(t_mlx *mlx)
 	else
 	{
 		mlx->cu->stepy = 1;
-		mlx->cu->side_disty = (mlx->cu->posy + 1 - mlx->cu->mapy) * mlx->cu->delta_y;
+		mlx->cu->side_disty = (mlx->cu->mapy + 1 - mlx->cu->posy) * mlx->cu->delta_y;
 	}
 }
 
@@ -311,7 +311,13 @@ void draw_cu_image(t_mlx *mlx)
 		draw_column(mlx, cube_img, pixel_x);
 		pixel_x++;
 	}
-
+	int line = 300;
+	int column = 0;
+	while (column < cube_img->w)
+	{
+		ft_mlx_putpix(column, line, 0xFFFFFF, cube_img);
+		column++;
+	}
 }
 
 /*
