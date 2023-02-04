@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 20:02:44 by hmochida          #+#    #+#             */
-/*   Updated: 2023/02/04 19:19:09 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/02/04 19:36:13 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -305,18 +305,12 @@ void draw_cu_image(t_mlx *mlx)
 	pixel_x = 0;
 	while (pixel_x < cube_img->w)
 	{
+		update_map_pos(mlx);
 		init_rays(mlx, pixel_x);
 		get_rays_dist_side(mlx);
 		calculate_line_coords(mlx);
 		draw_column(mlx, cube_img, pixel_x);
 		pixel_x++;
-	}
-	int line = 300;
-	int column = 0;
-	while (column < cube_img->w)
-	{
-		ft_mlx_putpix(column, line, 0xFFFFFF, cube_img);
-		column++;
 	}
 }
 
