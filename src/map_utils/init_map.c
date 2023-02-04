@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
+/*   By: viferrei <viferrei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 19:58:10 by hmochida          #+#    #+#             */
-/*   Updated: 2023/01/28 16:56:32 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/02/04 18:03:43 by viferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,8 @@ t_raw_map	*init_map(char *path_to_map)
 	get_raw_map_data(map, path_to_map);
 	validate_map(map);
 	settings = ft_calloc(1, sizeof(t_settings));
-	get_settings(settings, map->raw_cfg);
+	if(get_settings(settings, map->raw_cfg))
+		exit (1);
 	return (map);
 }
 
