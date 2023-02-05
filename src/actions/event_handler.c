@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 20:23:05 by hmochida          #+#    #+#             */
-/*   Updated: 2023/02/04 16:07:48 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/02/05 11:02:43 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	key_press(int keycode, t_mlx *mlx)
 	i = keymap00(keycode, mlx);
 	if (i)
 		i = keymap01(keycode, mlx);
+	img_cub(mlx);
+	render_images(mlx);
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 19:57:32 by hmochida          #+#    #+#             */
-/*   Updated: 2023/02/05 10:37:39 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/02/05 11:09:40 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,13 @@ int			check_last_line(char **map);
 void		event_handler(t_mlx *mlx);
 int			red_x_close(t_mlx *mlx);
 void		key_esc(t_mlx *mlx);
+void	key_w(t_mlx *mlx);
+void	key_a(t_mlx *mlx);
+void	key_s(t_mlx *mlx);
+void	key_d(t_mlx *mlx);
+void	key_left(t_mlx *mlx);
+void	key_right(t_mlx *mlx);
+
 
 /* RENDER */
 int			render_images(t_mlx *mlx);
