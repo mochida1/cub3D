@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 17:37:58 by hmochida          #+#    #+#             */
-/*   Updated: 2023/02/05 14:24:36 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/02/05 14:31:45 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ int	colision_a(t_mlx *mlx, double mv_diry, double mv_dirx)
 	int	ret;
 
 	ret = COLISION_NONE;
-	if (int_strrchr("0NSWE", mlx->map->raw_layout[(int)(mlx->cu->posy + mv_diry * MOVESPEED)][(int)mlx->cu->posx]))
+	if (int_strrchr("0NSWE", mlx->map->raw_layout[(int)(mlx->cu->posy + mv_diry * MOVESPEED * 1.1)][(int)mlx->cu->posx]))
 		ret |= COLISION_Y;
-	if (int_strrchr("0NSWE", mlx->map->raw_layout[(int)mlx->cu->posy][(int)(mlx->cu->posx + mv_dirx * MOVESPEED)]))
+	if (int_strrchr("0NSWE", mlx->map->raw_layout[(int)mlx->cu->posy][(int)(mlx->cu->posx + mv_dirx * MOVESPEED * 1.1)]))
 		ret |= COLISION_X;
 	return (ret);
 }
@@ -45,9 +45,9 @@ int	colision_d(t_mlx *mlx, double mv_diry, double mv_dirx)
 	int	ret;
 
 	ret = COLISION_NONE;
-	if (int_strrchr("0NSWE", mlx->map->raw_layout[(int)(mlx->cu->posy + mv_diry * -1 * MOVESPEED)][(int)mlx->cu->posx]))
+	if (int_strrchr("0NSWE", mlx->map->raw_layout[(int)(mlx->cu->posy + mv_diry * -1 * MOVESPEED * 1.1)][(int)mlx->cu->posx]))
 		ret |= COLISION_Y;
-	if (int_strrchr("0NSWE", mlx->map->raw_layout[(int)mlx->cu->posy][(int)(mlx->cu->posx + mv_dirx * -1 * MOVESPEED)]))
+	if (int_strrchr("0NSWE", mlx->map->raw_layout[(int)mlx->cu->posy][(int)(mlx->cu->posx + mv_dirx * -1 * MOVESPEED * 1.1)]))
 		ret |= COLISION_X;
 	return (ret);
 }
