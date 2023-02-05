@@ -6,18 +6,24 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 12:47:55 by hmochida          #+#    #+#             */
-/*   Updated: 2023/02/05 13:22:48 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/02/05 13:40:44 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
+/*
+	default starting direction
+*/
 void	pos_is_w(t_mlx *mlx)
 {
 	mlx->cu->dirx = -1;
 	mlx->cu->diry = 0;
 }
 
+/*
+	rotates 90deg left
+*/
 void	pos_is_s(t_mlx	*mlx)
 {
 	double	old_dirx;
@@ -31,6 +37,9 @@ void	pos_is_s(t_mlx	*mlx)
 	mlx->cu->planey = old_planex * -SIN90DEG + mlx->cu->planey * COS90DEG;
 }
 
+/*
+	rotates 90deg right
+*/
 void	pos_is_n(t_mlx *mlx)
 {
 	double	old_dirx;
@@ -44,19 +53,19 @@ void	pos_is_n(t_mlx *mlx)
 	mlx->cu->planey = old_planex * SIN90DEG + mlx->cu->planey * COS90DEG;
 }
 
+/*
+	rotates 90deg right twice :)
+*/
 void	pos_is_e(t_mlx *mlx)
 {
-	double	old_dirx;
-	double	old_planex;
-
-	old_planex = mlx->cu->planex;
-	old_dirx = mlx->cu->dirx;
-	mlx->cu->dirx = mlx->cu->dirx * COS180DEG - mlx->cu->diry * SIN180DEG;
-	mlx->cu->diry = old_dirx * SIN180DEG + mlx->cu->diry * COS180DEG;
-	mlx->cu->planex = mlx->cu->planex * COS180DEG - mlx->cu->planey * SIN180DEG;
-	mlx->cu->planey = old_planex * SIN180DEG + mlx->cu->planey * COS180DEG;
+	pos_is_n(mlx);
+	pos_is_n(mlx);
 }
 
+/*
+	After initializing the default values,
+	rotates according to starting symbol in map
+*/
 void	rotate_to_starting_dir(t_mlx *mlx)
 {
 	int	line;
