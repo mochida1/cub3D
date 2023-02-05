@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 10:18:59 by hmochida          #+#    #+#             */
-/*   Updated: 2023/02/05 10:32:31 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/02/05 16:30:58 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,15 @@
 */
 static int	get_color_from_texture(t_mlx *mlx)
 {
-	if (mlx->cu->side == 1)
-		return (0xaa0000);
-	else
-		return (0x00ff00);
+	if (mlx->cu->wall_face == WALL_NORTH)
+		return (C_RED);
+	else if(mlx->cu->wall_face == WALL_SOUTH)
+		return (C_LPINK);
+	else if(mlx->cu->wall_face == WALL_EAST)
+		return (C_YELLOW);
+	else if(mlx->cu->wall_face == WALL_WEST)
+		return (C_PURP);
+	return (0);
 }
 
 /*
@@ -43,6 +48,7 @@ static int	draw_wall(t_mlx *mlx, t_img *cube_img, int pixel_x, int count)
 {
 	while (count < mlx->cu->wall_end)
 	{
+		mlx->cu->wall_face = get_wall_face(mlx);
 		mlx->cu->color = get_color_from_texture(mlx);
 		ft_mlx_putpix(pixel_x, count, mlx->cu->color, cube_img);
 		count++;

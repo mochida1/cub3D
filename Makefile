@@ -23,7 +23,8 @@ ACTIONS		= 	key_esc.c mlx_keymap.c event_handler.c colision.c key_wasd.c \
 				key_lr.c
 IMAGE		=	putpix.c putsquare.c render_images.c image_draw0.c image_list.c
 CLEANUP		=	freedom.c
-RAYCASTING	=	ray00.c ray01.c draw_walls.c ray_moves.c initial_dir.c
+RAYCASTING	=	ray00.c ray01.c draw_walls.c ray_moves.c initial_dir.c \
+				draw_walls_utils.c
 TEST_LIST	=
 
 # Names sources

@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 19:57:32 by hmochida          #+#    #+#             */
-/*   Updated: 2023/02/05 14:36:25 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/02/05 16:32:07 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,8 @@ void		setup_step_direction(t_mlx *mlx);
 void		move_ray(t_mlx *mlx);
 // draw_walls.c
 void		draw_column(t_mlx *mlx, t_img *cube_img, int pixel_x);
+// draw_walls_utils.c
+int			get_wall_face(t_mlx *mlx);
 // initial_dir.c
 void		pos_is_w(t_mlx *mlx);
 void		pos_is_s(t_mlx	*mlx);
