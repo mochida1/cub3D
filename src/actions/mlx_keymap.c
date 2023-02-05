@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 23:53:33 by hmochida          #+#    #+#             */
-/*   Updated: 2023/01/22 15:52:39 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/02/05 11:15:50 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,41 +22,40 @@ int	keymap00(int keycode, t_mlx *mlx)
 		key_esc(mlx);
 	else if (keycode == KEY_LEFT)
 	{
-		printf("KEY: <- pressed\n");
+		key_left(mlx);
 		return (0);
 	}
 	else if (keycode == KEY_RIGHT)
 	{
-		printf("KEY: -> pressed\n");
+		key_right(mlx);
 		return (0);
 	}
 	return (1);
 }
 
 /*
-** placeholder. actions for keycodes W, A, S , D
+** actions for keycodes W, A, S , D
 */
 int	keymap01(int keycode, t_mlx *mlx)
 {
-	(void) mlx;
 	if (keycode == KEY_A)
 	{
-		printf("KEY: A pressed\n");
+		key_a(mlx);
 		return (0);
 	}
 	else if (keycode == KEY_S)
 	{
-		printf("KEY: S pressed\n");
+		key_s(mlx);
 		return (0);
 	}
 	else if (keycode == KEY_D)
 	{
-		printf("KEY: D pressed\n");
+		key_d(mlx);
 		return (0);
 	}
 	else if (keycode == KEY_W)
 	{
-		printf("KEY: W pressed\n");
+		key_w(mlx);
 		return (0);
 	}
 	return (1);

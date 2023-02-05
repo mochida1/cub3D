@@ -7,7 +7,7 @@ LIBFT_DIR = libft
 LLIBS =  -lmlx -lXext -lX11
 LIBFT = $(LIBFT_DIR)/libft.a
 VPATH = src tests src/utils src/main src/map_utils src/actions src/image \
-src/cleanup
+src/cleanup src/raycasting
 
 # headers
 INCLUDES = -I ./headers
@@ -19,14 +19,17 @@ MAP_UTILS	=	init_map.c map_disassemble.c get_map_raw_layout.c \
 				get_raw_map_settings.c get_settings.c map_validation.c \
 				map_checks.c map_checks_line.c
 PARSING		=	input_parsing.c
-ACTIONS		= 	key_esc.c mlx_keymap.c event_handler.c
+ACTIONS		= 	key_esc.c mlx_keymap.c event_handler.c colision.c key_wasd.c \
+				key_lr.c
 IMAGE		=	putpix.c putsquare.c render_images.c image_draw0.c image_list.c
 CLEANUP		=	freedom.c
+RAYCASTING	=	ray00.c ray01.c draw_walls.c ray_moves.c
 TEST_LIST	=
 
 # Names sources
 
-SOURCES =	$(MAIN) $(UTILS) $(MAP_UTILS) $(PARSING) $(ACTIONS) $(IMAGE) $(CLEANUP)\
+SOURCES =	$(MAIN) $(UTILS) $(MAP_UTILS) $(PARSING) $(ACTIONS) $(IMAGE) \
+			$(RAYCASTING) $(CLEANUP)\
 			$(TEST_LIST)
 
 # Names objects
