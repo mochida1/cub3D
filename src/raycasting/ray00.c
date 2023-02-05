@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 10:08:09 by hmochida          #+#    #+#             */
-/*   Updated: 2023/02/05 10:31:20 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/02/05 13:23:15 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,15 @@
 void	get_starting_direction(t_mlx *mlx, char c)
 {
 	if (c == 'W')
-	{
-		mlx->cu->dirx = -1;
-		mlx->cu->diry = 0;
-	}
-	if (c == 'S')
-	{
-		mlx->cu->dirx = 0;
-		mlx->cu->diry = 1;
-	}
-	if (c == 'N')
-	{
-		mlx->cu->dirx = 1;
-		mlx->cu->diry = -1;
-	}
-	if (c == 'E')
-	{
-		mlx->cu->dirx = 1;
-		mlx->cu->diry = 0;
-	}
+		pos_is_w(mlx);
+	else if (c == 'S')
+		pos_is_s(mlx);
+	else if (c == 'N')
+		pos_is_n(mlx);
+	else if (c == 'E')
+		pos_is_e(mlx);
+	else
+		write(2, "UNKNOWN ERROR: Initial position is of wrong value.\n", 52);
 }
 
 void	get_starting_position(t_mlx *mlx)
@@ -51,7 +41,7 @@ void	get_starting_position(t_mlx *mlx)
 			{
 				mlx->cu->posx = col + 0.5;
 				mlx->cu->posy = line + 0.5;
-				get_starting_direction(mlx, mlx->map->raw_layout[line][col]);
+				pos_is_w(mlx);
 				return ;
 			}
 			col++;
@@ -89,7 +79,6 @@ void	draw_cu_image(t_mlx *mlx)
 */
 void	img_cub(t_mlx *mlx)
 {
-	update_map_pos(mlx);
 	draw_cu_image(mlx);
 }
 
@@ -102,6 +91,7 @@ int	init_cu(t_mlx *mlx)
 	get_starting_position(mlx);
 	init_camera(mlx);
 	update_map_pos(mlx);
+	rotate_to_starting_dir(mlx);
 	draw_cu_image(mlx);
 	return (0);
 }

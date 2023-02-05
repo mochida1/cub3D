@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 19:57:32 by hmochida          #+#    #+#             */
-/*   Updated: 2023/02/05 11:09:40 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/02/05 13:26:18 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,12 @@ int			check_last_line(char **map);
 void		event_handler(t_mlx *mlx);
 int			red_x_close(t_mlx *mlx);
 void		key_esc(t_mlx *mlx);
-void	key_w(t_mlx *mlx);
-void	key_a(t_mlx *mlx);
-void	key_s(t_mlx *mlx);
-void	key_d(t_mlx *mlx);
-void	key_left(t_mlx *mlx);
-void	key_right(t_mlx *mlx);
+void		key_w(t_mlx *mlx);
+void		key_a(t_mlx *mlx);
+void		key_s(t_mlx *mlx);
+void		key_d(t_mlx *mlx);
+void		key_left(t_mlx *mlx);
+void		key_right(t_mlx *mlx);
 
 
 /* RENDER */
@@ -108,5 +108,12 @@ void		setup_step_direction(t_mlx *mlx);
 void		move_ray(t_mlx *mlx);
 // draw_walls.c
 void		draw_column(t_mlx *mlx, t_img *cube_img, int pixel_x);
+// initial_dir.c
+void		pos_is_w(t_mlx *mlx);
+void		pos_is_s(t_mlx	*mlx);
+void		pos_is_n(t_mlx *mlx);
+void		pos_is_e(t_mlx *mlx);
+void		rotate_to_starting_dir(t_mlx *mlx);
+
 
 #endif //CUB3D_H

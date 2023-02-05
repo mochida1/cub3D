@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 20:09:00 by hmochida          #+#    #+#             */
-/*   Updated: 2023/02/05 10:36:05 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/02/05 12:54:31 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,7 +155,11 @@ typedef struct s_mlx
 /* --------CONSTANTS--------- */
 # define COS5DEG		0.99619469809
 # define SIN5DEG		0.08715574274
-# define MOVESPEED	0.1
+# define COS90DEG		0
+# define SIN90DEG		1
+# define COS180DEG		1
+# define SIN180DEG		0
+# define MOVESPEED		0.1
 # define COLISION_NONE	0
 # define COLISION_Y		1
 # define COLISION_X		2
