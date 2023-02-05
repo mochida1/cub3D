@@ -6,44 +6,14 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 10:18:59 by hmochida          #+#    #+#             */
-/*   Updated: 2023/02/05 16:23:41 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/02/05 16:30:58 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	get_wall_face(t_mlx *mlx)
-{
-	if (mlx->cu->ray_dirx < 0 && mlx->cu->ray_diry < 0)
-	{
-		if (mlx->cu->side == 1)
-			return (WALL_NORTH);
-		return (WALL_EAST);
-	}
-	else if (mlx->cu->ray_dirx > 0 && mlx->cu->ray_diry < 0)
-	{
-		if (mlx->cu->side == 1)
-			return (WALL_NORTH);
-		return (WALL_WEST);
-	}
-	else if (mlx->cu->ray_dirx < 0 && mlx->cu->ray_diry > 0)
-	{
-		if (mlx->cu->side == 1)
-			return (WALL_SOUTH);
-		return (WALL_EAST);
-	}
-	else
-	{
-		if (mlx->cu->side == 1)
-			return (WALL_SOUTH);
-		return (WALL_WEST);
-	}
-}
-
 /*
 	IMPLEMENTAR!!!
-	o máximo de faces que se pode ver é 3.
-	Tudo depende da posição do jogador e da posição das paredes;
 */
 static int	get_color_from_texture(t_mlx *mlx)
 {
@@ -56,31 +26,6 @@ static int	get_color_from_texture(t_mlx *mlx)
 	else if(mlx->cu->wall_face == WALL_WEST)
 		return (C_PURP);
 	return (0);
-
-	// if (mlx->cu->ray_dirx < 0 && mlx->cu->ray_diry < 0)
-	// {
-	// 	if (mlx->cu->side == 1)
-	// 		return (0x000088);
-	// 	return (0x0000ff);
-	// }
-	// else if (mlx->cu->ray_dirx > 0 && mlx->cu->ray_diry < 0)
-	// {
-	// 	if (mlx->cu->side == 1)
-	// 		return (0x880000);
-	// 	return (0xff0000);
-	// }
-	// else if (mlx->cu->ray_dirx < 0 && mlx->cu->ray_diry > 0)
-	// {
-	// 	if (mlx->cu->side == 1)
-	// 		return (0x888800);
-	// 	return (0xffff00);
-	// }
-	// else
-	// {
-	// 	if (mlx->cu->side == 1)
-	// 		return (0x008800);
-	// 	return (0x00ff00);
-	// }
 }
 
 /*
