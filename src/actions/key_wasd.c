@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 10:53:34 by hmochida          #+#    #+#             */
-/*   Updated: 2023/02/05 10:59:52 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/02/05 14:19:15 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,13 @@
 
 void	key_w(t_mlx *mlx)
 {
-	// if()
+	int	colision;
+
+	colision = colision_w(mlx);
+	printf ("COLISION W: [%d]\n", colision);
+	if(!(colision & COLISION_Y))
 		mlx->cu->posy += mlx->cu->diry * MOVESPEED;
-	// if()
+	if(!(colision & COLISION_X))
 		mlx->cu->posx += mlx->cu->dirx * MOVESPEED;
 }
 

@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 19:57:32 by hmochida          #+#    #+#             */
-/*   Updated: 2023/02/05 13:26:18 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/02/05 14:05:28 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,11 @@ void		key_s(t_mlx *mlx);
 void		key_d(t_mlx *mlx);
 void		key_left(t_mlx *mlx);
 void		key_right(t_mlx *mlx);
+int	colision_a(t_mlx *mlx, double mv_diry, double mv_dirx);
+int	colision_s(t_mlx *mlx);
+int	colision_d(t_mlx *mlx, double mv_diry, double mv_dirx);
+int	colision_w(t_mlx *mlx);
+
 
 
 /* RENDER */
