@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 20:09:00 by hmochida          #+#    #+#             */
-/*   Updated: 2023/02/05 12:54:31 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/02/05 16:10:34 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ typedef struct s_cube
 	int		wall_h;
 	int		wall_start;
 	int		wall_end;
+	int		wall_face;
 	int		color;
 }	t_cube;
 
@@ -127,6 +128,13 @@ typedef struct s_mlx
 # define KEY_LEFT	65361
 # define KEY_RIGHT	65363
 # define RED_X		17
+
+/* WALL FACING DIRECTION */
+# define WALL_NORTH	1
+# define WALL_SOUTH	2
+# define WALL_EAST	4
+# define WALL_WEST	8
+
 
 /* COLOURS */
 # define C_WHITE	0xffffff
