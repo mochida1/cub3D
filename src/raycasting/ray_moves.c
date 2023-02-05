@@ -6,37 +6,41 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 10:22:27 by hmochida          #+#    #+#             */
-/*   Updated: 2023/02/05 10:24:37 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/02/05 10:35:26 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static void setup_ray_x_dir(t_mlx *mlx)
+static void	setup_ray_x_dir(t_mlx *mlx)
 {
 	if (mlx->cu->ray_dirx < 0)
 	{
 		mlx->cu->stepx = -1;
-		mlx->cu->side_distx = (mlx->cu->posx - mlx->cu->mapx) * mlx->cu->delta_x;
+		mlx->cu->side_distx = (mlx->cu->posx - mlx->cu->mapx)
+			* mlx->cu->delta_x;
 	}
 	else
 	{
 		mlx->cu->stepx = 1;
-		mlx->cu->side_distx = (mlx->cu->mapx + 1 - mlx->cu->posx ) * mlx->cu->delta_x;
+		mlx->cu->side_distx = (mlx->cu->mapx + 1 - mlx->cu->posx)
+			* mlx->cu->delta_x;
 	}
 }
 
-static void setup_ray_y_dir(t_mlx *mlx)
+static void	setup_ray_y_dir(t_mlx *mlx)
 {
 	if (mlx->cu->ray_diry < 0)
 	{
 		mlx->cu->stepy = -1;
-		mlx->cu->side_disty = (mlx->cu->posy - mlx->cu->mapy) * mlx->cu->delta_y;
+		mlx->cu->side_disty = (mlx->cu->posy - mlx->cu->mapy)
+			* mlx->cu->delta_y;
 	}
 	else
 	{
 		mlx->cu->stepy = 1;
-		mlx->cu->side_disty = (mlx->cu->mapy + 1 - mlx->cu->posy) * mlx->cu->delta_y;
+		mlx->cu->side_disty = (mlx->cu->mapy + 1 - mlx->cu->posy)
+			* mlx->cu->delta_y;
 	}
 }
 
@@ -55,7 +59,7 @@ void	setup_step_direction(t_mlx *mlx)
 */
 static int	is_wall_hit(t_mlx *mlx)
 {
-	int wall;
+	int	wall;
 
 	wall = 0;
 	if (mlx->cu->mapx < 0)
@@ -86,7 +90,7 @@ void	move_ray(t_mlx *mlx)
 
 	hit = 0;
 	update_map_pos(mlx);
-	while(!hit)
+	while (!hit)
 	{
 		if (mlx->cu->side_distx < mlx->cu->side_disty)
 		{

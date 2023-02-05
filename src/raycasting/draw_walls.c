@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 10:18:59 by hmochida          #+#    #+#             */
-/*   Updated: 2023/02/05 10:21:26 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/02/05 10:32:31 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ static int	get_color_from_texture(t_mlx *mlx)
 		return (0xaa0000);
 	else
 		return (0x00ff00);
-
 }
 
 /*
@@ -29,7 +28,7 @@ static int	get_color_from_texture(t_mlx *mlx)
 */
 static int	draw_ceiling(t_mlx *mlx, t_img *cube_img, int pixel_x, int count)
 {
-	while(count < mlx->cu->wall_start)
+	while (count < mlx->cu->wall_start)
 	{
 		ft_mlx_putpix(pixel_x, count, mlx->cu->color, cube_img);
 		count++;
@@ -42,7 +41,7 @@ static int	draw_ceiling(t_mlx *mlx, t_img *cube_img, int pixel_x, int count)
 */
 static int	draw_wall(t_mlx *mlx, t_img *cube_img, int pixel_x, int count)
 {
-	while(count < mlx->cu->wall_end)
+	while (count < mlx->cu->wall_end)
 	{
 		mlx->cu->color = get_color_from_texture(mlx);
 		ft_mlx_putpix(pixel_x, count, mlx->cu->color, cube_img);
@@ -56,7 +55,7 @@ static int	draw_wall(t_mlx *mlx, t_img *cube_img, int pixel_x, int count)
 */
 static int	draw_floor(t_mlx *mlx, t_img *cube_img, int pixel_x, int count)
 {
-	while(count < cube_img->h - 1)
+	while (count < cube_img->h - 1)
 	{
 		ft_mlx_putpix(pixel_x, count, mlx->cu->color, cube_img);
 		count++;
@@ -70,7 +69,6 @@ static int	draw_floor(t_mlx *mlx, t_img *cube_img, int pixel_x, int count)
 void	draw_column(t_mlx *mlx, t_img *cube_img, int pixel_x)
 {
 	int	count;
-
 
 	count = 0;
 	mlx->cu->color = C_CYAN; // NEEDS FIX

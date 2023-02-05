@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 10:14:13 by hmochida          #+#    #+#             */
-/*   Updated: 2023/02/05 10:17:06 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/02/05 10:33:18 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	init_camera(t_mlx *mlx)
 	updates map position before starting raycasting a screen;
 	MUST be called before draw_cu_image();
 */
-void update_map_pos(t_mlx *mlx)
+void	update_map_pos(t_mlx *mlx)
 {
 	mlx->cu->mapx = (int) mlx->cu->posx;
 	mlx->cu->mapy = (int) mlx->cu->posy;
@@ -55,7 +55,7 @@ void	calculate_line_coords(t_mlx *mlx)
 
 	if (!cube_img)
 		cube_img = ft_mlx_get_image_by_label(mlx, "cube");
-	mlx->cu->wall_h = (int) (cube_img->h / mlx->cu->perp_dist);
+	mlx->cu->wall_h = (int)(cube_img->h / mlx->cu->perp_dist);
 	mlx->cu->wall_start = -mlx->cu->wall_h / 2 + cube_img->h / 2;
 	if (mlx->cu->wall_start < 0)
 		mlx->cu->wall_start = 0;

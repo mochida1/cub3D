@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 19:57:32 by hmochida          #+#    #+#             */
-/*   Updated: 2023/02/05 10:25:34 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/02/05 10:37:39 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 # include "cub_mlx_keymap.h"
 
 /*TESTE*/
-void	img_cub(t_mlx *mlx);
+void		img_cub(t_mlx *mlx);
 
 /* MAP UTILS */
 t_raw_map	*init_map(char *path_to_map);
@@ -73,7 +73,7 @@ int			get_raw_map_settings(t_raw_map *map);
 int			get_settings(t_settings *settings, char **raw_cfg);
 
 /* PARSING */
-int	input_parsing(int argc, char **argv);
+int			input_parsing(int argc, char **argv);
 
 /* UTILS */
 char		**ft_split_spaces(char const *s);
@@ -85,22 +85,21 @@ void		*free_raw_map(t_raw_map *map);
 
 /* RAYCASTING */
 // ray00.c
-int	init_cu(t_mlx *mlx);
-void	img_cub(t_mlx *mlx);
-void	draw_cu_image(t_mlx *mlx);
-void	get_starting_position(t_mlx *mlx);
-void	get_starting_direction(t_mlx *mlx, char c);
+int			init_cu(t_mlx *mlx);
+void		img_cub(t_mlx *mlx);
+void		draw_cu_image(t_mlx *mlx);
+void		get_starting_position(t_mlx *mlx);
+void		get_starting_direction(t_mlx *mlx, char c);
 // ray01.c
-void	init_camera(t_mlx *mlx);
-void update_map_pos(t_mlx *mlx);
-void	init_rays(t_mlx *mlx, int pixel_x);
-void	calculate_line_coords(t_mlx *mlx);
-void	get_rays_dist_side(t_mlx *mlx);
+void		init_camera(t_mlx *mlx);
+void		update_map_pos(t_mlx *mlx);
+void		init_rays(t_mlx *mlx, int pixel_x);
+void		calculate_line_coords(t_mlx *mlx);
+void		get_rays_dist_side(t_mlx *mlx);
 // ray_moves.c
-void	setup_step_direction(t_mlx *mlx);
-void	move_ray(t_mlx *mlx);
+void		setup_step_direction(t_mlx *mlx);
+void		move_ray(t_mlx *mlx);
 // draw_walls.c
-void	draw_column(t_mlx *mlx, t_img *cube_img, int pixel_x);
-
+void		draw_column(t_mlx *mlx, t_img *cube_img, int pixel_x);
 
 #endif //CUB3D_H

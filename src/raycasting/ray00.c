@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 10:08:09 by hmochida          #+#    #+#             */
-/*   Updated: 2023/02/05 10:12:05 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/02/05 10:31:20 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	get_starting_position(t_mlx *mlx)
 	{
 		while (mlx->map->raw_layout[line][col])
 		{
-			if(!int_strrchr("NSWE", mlx->map->raw_layout[line][col]))
+			if (!int_strrchr("NSWE", mlx->map->raw_layout[line][col]))
 			{
 				mlx->cu->posx = col + 0.5;
 				mlx->cu->posy = line + 0.5;
