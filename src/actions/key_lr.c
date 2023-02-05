@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 11:01:27 by hmochida          #+#    #+#             */
-/*   Updated: 2023/02/05 11:07:23 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/02/05 11:14:19 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ void	key_left(t_mlx *mlx)
 
 	old_planex = mlx->cu->planex;
 	old_dirx = mlx->cu->dirx;
-	mlx->cu->dirx = mlx->cu->dirx * 0.99619469809 - mlx->cu->diry * 0.08715574274;
-	mlx->cu->diry = old_dirx * 0.08715574274 + mlx->cu->diry * 0.99619469809;
-	mlx->cu->planex = mlx->cu->planex * 0.99619469809 - mlx->cu->planey * 0.08715574274;
-	mlx->cu->planey = old_planex * 0.08715574274 + mlx->cu->planey * 0.99619469809;
+	mlx->cu->dirx = mlx->cu->dirx * COS5DEG - mlx->cu->diry * SIN5DEG;
+	mlx->cu->diry = old_dirx * SIN5DEG + mlx->cu->diry * COS5DEG;
+	mlx->cu->planex = mlx->cu->planex * COS5DEG - mlx->cu->planey * SIN5DEG;
+	mlx->cu->planey = old_planex * SIN5DEG + mlx->cu->planey * COS5DEG;
 }
 
 void	key_right(t_mlx *mlx)
@@ -32,8 +32,8 @@ void	key_right(t_mlx *mlx)
 
 	old_dirx = mlx->cu->dirx;
 	old_planex = mlx->cu->planex;
-	mlx->cu->dirx = mlx->cu->dirx * 0.99619469809 - mlx->cu->diry * -0.08715574274;
-	mlx->cu->diry = old_dirx * -0.08715574274 + mlx->cu->diry * 0.99619469809;
-	mlx->cu->planex = mlx->cu->planex * 0.99619469809 - mlx->cu->planey * -0.08715574274;
-	mlx->cu->planey = old_planex * -0.08715574274 + mlx->cu->planey * 0.99619469809;
+	mlx->cu->dirx = mlx->cu->dirx * COS5DEG - mlx->cu->diry * -SIN5DEG;
+	mlx->cu->diry = old_dirx * -SIN5DEG + mlx->cu->diry * COS5DEG;
+	mlx->cu->planex = mlx->cu->planex * COS5DEG - mlx->cu->planey * -SIN5DEG;
+	mlx->cu->planey = old_planex * -SIN5DEG + mlx->cu->planey * COS5DEG;
 }

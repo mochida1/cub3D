@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 23:53:33 by hmochida          #+#    #+#             */
-/*   Updated: 2023/02/05 11:07:55 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/02/05 11:15:50 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 */
 int	keymap00(int keycode, t_mlx *mlx)
 {
-
 	if (keycode == KEY_ESC)
 		key_esc(mlx);
 	else if (keycode == KEY_LEFT)

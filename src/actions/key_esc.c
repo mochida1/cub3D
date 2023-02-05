@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 21:08:39 by hmochida          #+#    #+#             */
-/*   Updated: 2023/01/14 22:16:45 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/02/05 11:16:21 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void	key_esc(t_mlx *mlx)
 {
 	printf("\033[31;1mClosing Cub32...\033[0m\n");
-
 	// mlx_destroy_image(mlx->mlx_ptr, mlx->img);
 	mlx_destroy_window(mlx->mlx_ptr, mlx->win_ptr);
 	mlx_destroy_display(mlx->mlx_ptr);
