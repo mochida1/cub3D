@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 20:09:00 by hmochida          #+#    #+#             */
-/*   Updated: 2023/01/28 16:58:19 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/02/05 16:10:34 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,19 @@
 
 # ifndef SUCCESS
 #  define SUCCESS 1
-#  define FAIL 0
 # endif //SUCCESS
+
+# ifndef FAIL
+#  define FAIL 0
+# endif
+
+# ifndef FALSE
+#  define FALSE 0
+# endif //FALSE
+
+# ifndef TRUE
+#  define TRUE 1
+# endif //TRUE
 
 typedef struct s_raw_map
 {
@@ -55,13 +66,44 @@ typedef struct s_img
 	void		*next;
 }	t_img;
 
+typedef struct s_cube
+{
+	double	posx;
+	double	posy;
+	double	dirx;
+	double	diry;
+	double	planex;
+	double	planey;
+	double	camera;
+	double	mapx;
+	double	mapy;
+	double	ray_dirx;
+	double	ray_diry;
+	double	side_distx;
+	double	side_disty;
+	double	delta_x;
+	double	delta_y;
+	double	perp_dist;
+	int		stepx;
+	int		stepy;
+	int		side;
+	int		wall_h;
+	int		wall_start;
+	int		wall_end;
+	int		wall_face;
+	int		color;
+}	t_cube;
+
 typedef struct s_mlx
 {
-	void	*mlx_ptr;
-	void	*win_ptr;
-	int		win_heigh;
-	int		win_width;
-	t_img	*img_list_head;
+	void		*mlx_ptr;
+	void		*win_ptr;
+	int			win_heigh;
+	int			win_width;
+	t_img		*img_list_head;
+	t_cube		*cu;
+	t_raw_map	*map;
+	t_settings	*settings;
 }	t_mlx;
 
 /* KEY PRESS CODES*/
@@ -87,6 +129,13 @@ typedef struct s_mlx
 # define KEY_RIGHT	65363
 # define RED_X		17
 
+/* WALL FACING DIRECTION */
+# define WALL_NORTH	1
+# define WALL_SOUTH	2
+# define WALL_EAST	4
+# define WALL_WEST	8
+
+
 /* COLOURS */
 # define C_WHITE	0xffffff
 # define C_BLACK	0x000000
@@ -100,11 +149,27 @@ typedef struct s_mlx
 # define C_LLPINK	0xffddff
 # define C_PURP		0x880088
 # define C_TEST		0xFFFFFF
+# define C_BROWN	0x3d251e
 
 /* ---------CONFIGS--------- */
-# define MM_SCALE	2
+# define WINDOW_W	640
+# define WINDOW_H	480
+# define PLANE_DIST	0.66
+# define MM_SCALE	2 // minimap scaling factor
 /* MINIMAP COORDS */
-# define MINIMAP_X	50
-# define MINIMAP_Y	50
+# define MINIMAP_X	5
+# define MINIMAP_Y	10
+
+/* --------CONSTANTS--------- */
+# define COS5DEG		0.99619469809
+# define SIN5DEG		0.08715574274
+# define COS90DEG		0
+# define SIN90DEG		1
+# define COS180DEG		1
+# define SIN180DEG		0
+# define MOVESPEED		0.1
+# define COLISION_NONE	0
+# define COLISION_Y		1
+# define COLISION_X		2
 
 #endif // CUB_DEFS_H
