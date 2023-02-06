@@ -6,7 +6,7 @@
 /*   By: viferrei <viferrei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 18:21:55 by viferrei          #+#    #+#             */
-/*   Updated: 2023/02/04 18:53:56 by viferrei         ###   ########.fr       */
+/*   Updated: 2023/02/04 19:06:32 by viferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,10 @@ int	check_settings(t_settings *settings, int settings_count)
 
 	exit_code = 0;
 	i = 0;
-
+	if (settings_count != 6)
+	{
+		printf("error: ");
+	}
 	if (!settings->north_texture || !settings->south_texture
 		|| !settings->west_texture || !settings->east_texture)
 	{
@@ -101,21 +104,6 @@ int	check_settings(t_settings *settings, int settings_count)
 /*
 // Changes color values to -1 to later check if all values were assigned.
 */
-void settings_loop(t_settings *settings, char *raw_cfg, int *settings_count)
-{
-	if (!ft_strncmp(raw_cfg, "NO", 2))
-		*settings_count += get_texture(&settings->north_texture, raw_cfg);
-	if (!ft_strncmp(raw_cfg, "SO", 2))
-		*settings_count += get_texture(&settings->south_texture, raw_cfg);
-	if (!ft_strncmp(raw_cfg, "WE", 2))
-		*settings_count += get_texture(&settings->west_texture, raw_cfg);
-	if (!ft_strncmp(raw_cfg, "EA", 2))
-		*settings_count += get_texture(&settings->east_texture, raw_cfg);
-	if (!ft_strncmp(raw_cfg, "F", 1))
-		*settings_count += get_color(settings->floor_color, raw_cfg);
-	if (!ft_strncmp(raw_cfg, "C", 1))
-		*settings_count += get_color(settings->ceiling_color, raw_cfg);
-}
 int	init_colors(t_settings *settings)
 {
 	int	i;
