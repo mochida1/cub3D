@@ -6,7 +6,7 @@
 /*   By: viferrei <viferrei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 19:58:10 by hmochida          #+#    #+#             */
-/*   Updated: 2023/02/04 18:03:43 by viferrei         ###   ########.fr       */
+/*   Updated: 2023/02/06 18:37:13 by viferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,11 +68,7 @@ int	get_raw_map_data(t_raw_map *map, char *path_to_map)
 		printf("error reading raw map data\n");
 		exit (1);
 	}
-	if (get_raw_map_settings(map))
-	{
-		printf("error getting map settings\n");
-		exit (1);
-	}
+	get_raw_map_settings(map);
 	map_disassemble(map);
 	return (0);
 }

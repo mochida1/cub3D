@@ -6,7 +6,7 @@
 /*   By: viferrei <viferrei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 21:22:52 by viferrei          #+#    #+#             */
-/*   Updated: 2023/01/21 18:36:46 by viferrei         ###   ########.fr       */
+/*   Updated: 2023/02/06 18:42:17 by viferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,25 +16,25 @@
 //	Checks if line is a direction or color setting. If direction, if it's
 //	followed by a space and valid path.
 */
-int	invalid_setting(char *raw_line)
+int	valid_setting(char *raw_line)
 {
 	char	**line;
 	int		exit_code;
 
 	line = ft_split_spaces(raw_line);
-	exit_code = 1;
+	exit_code = 0;
 	if (!ft_strcmp(line[0], "NO") || !ft_strcmp(line[0], "SO")
 		|| !ft_strcmp(line[0], "WE") || !ft_strcmp(line[0], "EA"))
 	{
-		exit_code = 0;
+		exit_code = 1;
 		if (open(line[1], O_RDONLY) < 0)
 		{
 			printf("Invalid texture path\n");
-			exit_code = 2;
+			exit_code = 0;
 		}
 	}
 	else if (!ft_strcmp(line[0], "F") || !ft_strcmp(line[0], "C"))
-		exit_code = 0;
+		exit_code = 1;
 	free_string_array(line);
 	return (exit_code);
 }
@@ -45,15 +45,21 @@ int	invalid_setting(char *raw_line)
 int	save_raw_setting(t_raw_map *map, char *line)
 {
 	static int	index = 0;
+	static int	settings_complete = 0;
 
-	while (index < 7)
+	if (settings_complete)
+	{
+		printf("error: too many settings arguments\n");
+		exit (1);
+	}
+	while (index < 7 && !settings_complete)
 	{
 		map->raw_cfg[index] = line;
 		index++;
 		break ;
 	}
 	if (index == 6)
-		return (1);
+		settings_complete = 1;
 	return (0);
 }
 
@@ -93,10 +99,8 @@ int	get_raw_map_settings(t_raw_map *map)
 			line++;
 			continue ;
 		}
-		else if (invalid_setting(line_start))
-			return (1);
-		if (save_raw_setting(map, line_start))
-			break ;
+		if (valid_setting(line_start))
+			save_raw_setting(map, line_start);
 		line++;
 	}
 	return (0);

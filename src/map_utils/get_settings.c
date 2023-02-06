@@ -6,20 +6,25 @@
 /*   By: viferrei <viferrei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 18:21:55 by viferrei          #+#    #+#             */
-/*   Updated: 2023/02/04 19:06:32 by viferrei         ###   ########.fr       */
+/*   Updated: 2023/02/06 17:40:32by viferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
 /*
-//	Checks if color numbers are inbetween 0 and 255. Does not check if it's a
-//	non-decimal number.
+//	Checks if there are 3 color numbers inbetween 0 and 255. Does not check
+//	if it's a non-decimal number.
 */
 int	invalid_color(char **split_line)
 {
 	int	i;
 
+	i = 1;
+	while (split_line[i])
+		i++;
+	if (i != 4)
+		return (1);
 	i = 1;
 	while (split_line[i])
 	{
@@ -50,8 +55,8 @@ int	get_color(int *color, char *line)
 	if (invalid_color(split_line))
 	{
 		free_string_array(split_line);
-		printf("error: invalid RGB color\n");
-		exit(1);
+		printf("error: invalid color setting\n");
+		exit (1);
 	}
 	color[0] = ft_atoi(split_line[1]);
 	color[1] = ft_atoi(split_line[2]);
@@ -70,10 +75,31 @@ int	get_texture(char **texture, char *line)
 	return (1);
 }
 
+int	empty_setting(t_settings *settings)
+{
+	int	exit_code;
+	int	i;
+
+	exit_code = 0;
+	i = 0;
+	if (!settings->north_texture || !settings->south_texture
+		|| !settings->west_texture || !settings->east_texture)
+		exit_code = 1;
+	while (i < 3)
+	{
+		if (settings->floor_color[i] == -1 || settings->ceiling_color[i] == -1)
+			exit_code = 1;
+		i++;
+	}
+	if (exit_code)
+		printf("error: missing color or texture setting.\n");
+	return (exit_code);
+}
+
 /*
-// Checks if any element of the settings struct is empty.
+// Checks the number of settings elements or if any of them are empty.
 */
-int	check_settings(t_settings *settings, int settings_count)
+int	check_settings_nb(t_settings *settings, int settings_count)
 {
 	int exit_code;
 	int i;
@@ -82,22 +108,11 @@ int	check_settings(t_settings *settings, int settings_count)
 	i = 0;
 	if (settings_count != 6)
 	{
-		printf("error: ");
-	}
-	if (!settings->north_texture || !settings->south_texture
-		|| !settings->west_texture || !settings->east_texture)
-	{
-		printf("error: missing texture setting\n");
+		printf("error: wrong number of settings in .cub file\n");
 		exit_code = 1;
 	}
-	while (i < 3)
-	{
-		if (settings->floor_color[i] == -1 || settings->ceiling_color[i] == -1)
-		{
-			printf("error: missing color setting\n");
-			exit_code = 1;
-		}
-	}
+	if (empty_setting(settings))
+		exit_code = 1;
 	return (exit_code);
 }
 
@@ -147,7 +162,7 @@ int	get_settings(t_settings *settings, char **raw_cfg)
 		settings_loop(settings, raw_cfg[i], &settings_count);
 		i++;
 	}
-	if (check_settings(settings, settings_count))
+	if (check_settings_nb(settings, settings_count))
 		exit (1);
 	return (0);
 }
