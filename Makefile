@@ -17,7 +17,7 @@ MAIN		=	main.c
 UTILS		=	safe_free.c ft_strcmp.c ft_split_spaces.c int_strrchr.c
 MAP_UTILS	=	init_map.c map_disassemble.c get_map_raw_layout.c \
 				get_raw_map_settings.c get_settings.c map_validation.c \
-				map_checks.c map_checks_line.c
+				map_checks.c map_checks_line.c get_settings_utils.c
 PARSING		=	input_parsing.c
 ACTIONS		= 	key_esc.c mlx_keymap.c event_handler.c colision.c key_wasd.c \
 				key_lr.c

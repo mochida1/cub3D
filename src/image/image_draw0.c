@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   image_draw0.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
+/*   By: viferrei <viferrei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 21:28:32 by hmochida          #+#    #+#             */
-/*   Updated: 2023/01/29 17:13:16 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/02/07 19:32:36 by viferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	img_miniplayer(t_img *img, int miniplayer_x, int miniplayer_y)
 {
 	img->win_x = (miniplayer_x * MM_SCALE) + MINIMAP_X;
 	img->win_y = (miniplayer_y * MM_SCALE) + MINIMAP_Y;
-	printf("miniplayer x: %d\n",img->win_x);
-	printf("miniplayer y: %d\n",img->win_y);
+	printf("miniplayer x: %d\n", img->win_x);
+	printf("miniplayer y: %d\n", img->win_y);
 	memset((char *)img->data, C_TEST, img->w * img->h * img->bpp / 8);
 }

@@ -6,7 +6,7 @@
 /*   By: viferrei <viferrei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 20:09:00 by hmochida          #+#    #+#             */
-/*   Updated: 2023/02/06 19:37:31 by viferrei         ###   ########.fr       */
+/*   Updated: 2023/02/07 19:45:56 by viferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,7 +134,6 @@ typedef struct s_mlx
 # define WALL_SOUTH	2
 # define WALL_EAST	4
 # define WALL_WEST	8
-
 
 /* COLOURS */
 # define C_WHITE	0xffffff

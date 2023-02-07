@@ -6,7 +6,7 @@
 /*   By: viferrei <viferrei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 21:22:52 by viferrei          #+#    #+#             */
-/*   Updated: 2023/02/06 18:42:17 by viferrei         ###   ########.fr       */
+/*   Updated: 2023/02/07 19:26:26 by viferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,6 @@ int	jump_spaces(char **line_start, t_raw_map *map, int line)
 int	get_raw_map_settings(t_raw_map *map)
 {
 	int		line;
-	int		c;
 	char	*line_start;
 
 	line = 0;
@@ -93,7 +92,7 @@ int	get_raw_map_settings(t_raw_map *map)
 	while (map->raw_map_data[line])
 	{
 		line_start = NULL;
-		c = jump_spaces(&line_start, map, line);
+		jump_spaces(&line_start, map, line);
 		if (line_start[0] == '#' || !line_start[0])
 		{
 			line++;

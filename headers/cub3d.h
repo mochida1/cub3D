@@ -6,7 +6,7 @@
 /*   By: viferrei <viferrei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 19:57:32 by hmochida          #+#    #+#             */
-/*   Updated: 2023/02/06 20:04:52 by viferrei         ###   ########.fr       */
+/*   Updated: 2023/02/07 19:46:31 by viferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,11 @@ void		*ft_mlx_get_image_by_label(t_mlx *mlx, char *label);
 // get_map_settings.c
 int			get_raw_map_settings(t_raw_map *map);
 int			get_settings(t_settings *settings, char **raw_cfg);
+
+// get_settings_utils.c
+int			check_settings_nb(t_settings *settings, int settings_count);
+int			init_colors(t_settings *settings);
+int			create_single_rgb(int r, int g, int b);
 
 /* PARSING */
 int			input_parsing(int argc, char **argv);
