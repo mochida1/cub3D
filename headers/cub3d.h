@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
+/*   By: viferrei <viferrei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 19:57:32 by hmochida          #+#    #+#             */
-/*   Updated: 2023/02/05 16:32:07 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/02/06 20:04:52 by viferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ void		ft_mlx_putsquare_red(int x, int y, int size, t_img *img);
 void		ft_mlx_putsquare_green(int x, int y, int size, t_img *img);
 void		img_minimap(t_img *img, t_raw_map *map);
 void		img_miniplayer(t_img *img, int miniplayer_x, int miniplayer_y);
+int			create_single_rgb(int r, int g, int b);
 
 /* IMAGE LINKED LIST */
 t_img		*ft_mlx_init_image(t_mlx *mlx, \

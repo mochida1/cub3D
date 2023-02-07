@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_walls.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
+/*   By: viferrei <viferrei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 10:18:59 by hmochida          #+#    #+#             */
-/*   Updated: 2023/02/05 16:30:58 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/02/06 20:14:40 by viferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ static int	get_color_from_texture(t_mlx *mlx)
 {
 	if (mlx->cu->wall_face == WALL_NORTH)
 		return (C_RED);
-	else if(mlx->cu->wall_face == WALL_SOUTH)
+	else if (mlx->cu->wall_face == WALL_SOUTH)
 		return (C_LPINK);
-	else if(mlx->cu->wall_face == WALL_EAST)
+	else if (mlx->cu->wall_face == WALL_EAST)
 		return (C_YELLOW);
-	else if(mlx->cu->wall_face == WALL_WEST)
+	else if (mlx->cu->wall_face == WALL_WEST)
 		return (C_PURP);
 	return (0);
 }
@@ -77,9 +77,11 @@ void	draw_column(t_mlx *mlx, t_img *cube_img, int pixel_x)
 	int	count;
 
 	count = 0;
-	mlx->cu->color = C_CYAN; // NEEDS FIX
+	mlx->cu->color = create_single_rgb(mlx->settings->ceiling_color[0], \
+		mlx->settings->ceiling_color[1], mlx->settings->ceiling_color[2]);
 	count = draw_ceiling(mlx, cube_img, pixel_x, count);
 	count = draw_wall(mlx, cube_img, pixel_x, count);
-	mlx->cu->color = C_BROWN; // NEEDS FIX
+	mlx->cu->color = create_single_rgb(mlx->settings->floor_color[0], \
+		mlx->settings->floor_color[1], mlx->settings->floor_color[2]);
 	count = draw_floor(mlx, cube_img, pixel_x, count);
 }

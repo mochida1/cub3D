@@ -5,8 +5,8 @@ NO	textures/barrel.xpm
 SO	textures/bluestone.xpm
 WE	textures/colorstone.xpm
 EA	textures/eagle.xpm
-F   200, 200, 90
-C	7, 255, 40
+F   209, 165, 54
+C   53, 164, 166
 
 #will make it so that '\t' is replaced by (4-(number of characters in line so far)%4)
 

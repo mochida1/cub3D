@@ -36,6 +36,15 @@ int	invalid_color(char **split_line)
 }
 
 /*
+//	Returns RGB numbers as a single int
+*/
+int	create_single_rgb(int r, int g, int b)
+{
+	return (r << 16 | g << 8 | b);
+}
+
+
+/*
 //	Replaces commas with spaces and splits the line into setting and color
 //	numbers.
 */
@@ -61,6 +70,10 @@ int	get_color(int *color, char *line)
 	color[0] = ft_atoi(split_line[1]);
 	color[1] = ft_atoi(split_line[2]);
 	color[2] = ft_atoi(split_line[3]);
+
+	int	single_int = create_single_rgb(color[0], color[1], color[2]);
+	printf("%d\n", single_int);
+
 	free_string_array(split_line);
 	return (1);
 }

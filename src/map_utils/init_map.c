@@ -6,7 +6,7 @@
 /*   By: viferrei <viferrei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 19:58:10 by hmochida          #+#    #+#             */
-/*   Updated: 2023/02/06 18:37:13 by viferrei         ###   ########.fr       */
+/*   Updated: 2023/02/06 20:06:36 by viferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,14 +81,10 @@ int	get_raw_map_data(t_raw_map *map, char *path_to_map)
 t_raw_map	*init_map(char *path_to_map)
 {
 	t_raw_map	*map;
-	t_settings	*settings;
 
 	map = ft_calloc(1, sizeof(t_raw_map));
 	get_raw_map_data(map, path_to_map);
 	validate_map(map);
-	settings = ft_calloc(1, sizeof(t_settings));
-	if(get_settings(settings, map->raw_cfg))
-		exit (1);
 	return (map);
 }
 
