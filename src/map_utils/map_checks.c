@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 16:50:26 by hmochida          #+#    #+#             */
-/*   Updated: 2023/01/28 16:57:53 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/02/08 20:25:39 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int	check_adjacency(char **raw_map)
 	static int	line;
 	static int	col;
 
+	line = 1;
 	while (raw_map[line])
 	{
 		while (raw_map[line][col])
