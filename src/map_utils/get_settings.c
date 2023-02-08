@@ -6,7 +6,7 @@
 /*   By: viferrei <viferrei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 19:39:06 by viferrei          #+#    #+#             */
-/*   Updated: 2023/02/07 19:42:22 by viferrei         ###   ########.fr       */
+/*   Updated: 2023/02/08 20:13:22 by viferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	invalid_color(char **split_line)
 //	Replaces commas with spaces and splits the line into setting and color
 //	numbers.
 */
-int	get_color(int *color, char *line)
+int	get_color(t_mlx *mlx, t_settings *settings, int *color, char *line)
 {
 	int		i;
 	char	**split_line;
@@ -56,7 +56,8 @@ int	get_color(int *color, char *line)
 	{
 		free_string_array(split_line);
 		printf("error: invalid color setting\n");
-		exit (1);
+		free_settings(settings);
+		free_and_exit(mlx, 1);
 	}
 	color[0] = ft_atoi(split_line[1]);
 	color[1] = ft_atoi(split_line[2]);
@@ -75,7 +76,8 @@ int	get_texture(char **texture, char *line)
 	return (1);
 }
 
-void	settings_loop(t_settings *settings, char *raw_cfg, int *settings_count)
+void	settings_loop(t_mlx *mlx, t_settings *settings, char *raw_cfg, \
+						int *settings_count)
 {
 	if (!ft_strncmp(raw_cfg, "NO", 2))
 		*settings_count += get_texture(&settings->north_texture, raw_cfg);
@@ -86,25 +88,31 @@ void	settings_loop(t_settings *settings, char *raw_cfg, int *settings_count)
 	if (!ft_strncmp(raw_cfg, "EA", 2))
 		*settings_count += get_texture(&settings->east_texture, raw_cfg);
 	if (!ft_strncmp(raw_cfg, "F", 1))
-		*settings_count += get_color(settings->floor_color, raw_cfg);
+		*settings_count += get_color(mlx, settings, settings->floor_color, raw_cfg);
 	if (!ft_strncmp(raw_cfg, "C", 1))
-		*settings_count += get_color(settings->ceiling_color, raw_cfg);
+		*settings_count += get_color(mlx, settings, settings->ceiling_color, raw_cfg);
 }
 
-int	get_settings(t_settings *settings, char **raw_cfg)
+int	get_settings(t_mlx *mlx, char **raw_cfg)
 {
-	int	i;
-	int	settings_count;
+	int			i;
+	int			settings_count;
+	t_settings	*settings;
 
 	i = 0;
 	settings_count = 0;
+	settings = ft_calloc(1, sizeof(t_settings));
 	init_colors(settings);
 	while (raw_cfg[i])
 	{
-		settings_loop(settings, raw_cfg[i], &settings_count);
+		settings_loop(mlx, settings, raw_cfg[i], &settings_count);
 		i++;
 	}
 	if (check_settings_nb(settings, settings_count))
-		exit (1);
+	{
+		free_settings(settings);
+		free_and_exit(mlx, 1);
+	}
+	mlx->settings = settings;
 	return (0);
 }

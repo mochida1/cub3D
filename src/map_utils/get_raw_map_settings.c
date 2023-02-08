@@ -6,7 +6,7 @@
 /*   By: viferrei <viferrei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 21:22:52 by viferrei          #+#    #+#             */
-/*   Updated: 2023/02/07 19:26:26 by viferrei         ###   ########.fr       */
+/*   Updated: 2023/02/08 19:34:44 by viferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,8 @@ int	save_raw_setting(t_raw_map *map, char *line)
 	if (settings_complete)
 	{
 		printf("error: too many settings arguments\n");
-		exit (1);
+		destroy_map(map);
+		exit(1);
 	}
 	while (index < 7 && !settings_complete)
 	{
