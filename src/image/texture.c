@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 15:04:40 by hmochida          #+#    #+#             */
-/*   Updated: 2023/02/11 15:06:48 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/02/11 15:53:10 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*destroy_tx(t_mlx *mlx)
 	int	index;
 
 	index = 0;
-	while(index<4)
+	while (index < 4)
 	{
 		mlx_destroy_image(mlx->mlx_ptr, mlx->tx[index].tx_img_ptr);
 		index++;

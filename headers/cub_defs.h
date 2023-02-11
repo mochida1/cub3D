@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 20:09:00 by hmochida          #+#    #+#             */
-/*   Updated: 2023/02/11 14:42:42 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/02/11 15:52:22 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,6 @@ typedef struct s_textures
 	int		sz_line;
 	int		endian;
 }	t_tx;
-
 
 typedef struct s_cube
 {
