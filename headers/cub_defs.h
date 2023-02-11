@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 20:09:00 by hmochida          #+#    #+#             */
-/*   Updated: 2023/02/11 15:52:22 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/02/11 18:04:23 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,8 @@ typedef struct s_textures
 	int		bpp;
 	int		sz_line;
 	int		endian;
+	double	step_size;
+	double	position;
 }	t_tx;
 
 typedef struct s_cube
@@ -95,6 +97,7 @@ typedef struct s_cube
 	double	delta_x;
 	double	delta_y;
 	double	perp_dist;
+	int		tx_x;
 	int		stepx;
 	int		stepy;
 	int		side;
@@ -142,10 +145,10 @@ typedef struct s_mlx
 # define RED_X		17
 
 /* WALL FACING DIRECTION */
-# define WALL_NORTH	1
-# define WALL_SOUTH	2
-# define WALL_EAST	4
-# define WALL_WEST	8
+# define WALL_NORTH	0
+# define WALL_SOUTH	1
+# define WALL_WEST	2
+# define WALL_EAST	3
 
 /* COLOURS */
 # define C_WHITE	0xffffff
