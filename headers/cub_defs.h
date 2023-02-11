@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub_defs.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: viferrei <viferrei@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 20:09:00 by hmochida          #+#    #+#             */
-/*   Updated: 2023/02/07 19:45:56 by viferrei         ###   ########.fr       */
+/*   Updated: 2023/02/11 14:42:42 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,16 +39,6 @@ typedef struct s_raw_map
 	char			**raw_layout;
 }	t_raw_map;
 
-typedef struct s_settings
-{
-	char	*north_texture;
-	char	*south_texture;
-	char	*west_texture;
-	char	*east_texture;
-	int		floor_color[3];
-	int		ceiling_color[3];
-}	t_settings;
-
 typedef struct s_img
 {
 	char		*label;
@@ -65,6 +55,28 @@ typedef struct s_img
 	int			win_y;
 	void		*next;
 }	t_img;
+
+typedef struct s_settings
+{
+	char	*north_texture;
+	char	*south_texture;
+	char	*west_texture;
+	char	*east_texture;
+	int		floor_color[3];
+	int		ceiling_color[3];
+}	t_settings;
+
+typedef struct s_textures
+{
+	void	*tx_img_ptr;
+	char	*data;
+	int		w;
+	int		h;
+	int		bpp;
+	int		sz_line;
+	int		endian;
+}	t_tx;
+
 
 typedef struct s_cube
 {
@@ -104,6 +116,7 @@ typedef struct s_mlx
 	t_cube		*cu;
 	t_raw_map	*map;
 	t_settings	*settings;
+	t_tx		*tx;
 }	t_mlx;
 
 /* KEY PRESS CODES*/
@@ -151,13 +164,21 @@ typedef struct s_mlx
 # define C_BROWN	0x3d251e
 
 /* ---------CONFIGS--------- */
-# define WINDOW_W	640
-# define WINDOW_H	480
-# define PLANE_DIST	0.66
-# define MM_SCALE	2 // minimap scaling factor
-/* MINIMAP COORDS */
-# define MINIMAP_X	5
-# define MINIMAP_Y	10
+# define WINDOW_W		640
+# define WINDOW_H		480
+# define PLANE_DIST		0.66
+# define MM_SCALE		2 // minimap scaling factor
+/* ------MINIMAP COORDS----- */
+# define MINIMAP_X		5
+# define MINIMAP_Y		10
+
+/* -----------XPM------------*/
+# define XPM_W			64
+# define XPM_H			64
+# define NORTH			0
+# define SOUTH			1
+# define WEST			2
+# define EAST			3
 
 /* --------CONSTANTS--------- */
 # define COS5DEG		0.99619469809

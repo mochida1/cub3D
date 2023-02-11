@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: viferrei <viferrei@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 20:02:44 by hmochida          #+#    #+#             */
-/*   Updated: 2023/02/07 19:36:35 by viferrei         ###   ########.fr       */
+/*   Updated: 2023/02/11 15:05:19 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 void	init_images(t_mlx *mlx, t_raw_map *map)
 {
+	mlx->tx = init_textures(mlx);
 	ft_mlx_init_image(mlx, WINDOW_W, WINDOW_H, "cube");
 	ft_mlx_init_image(mlx, (map->raw_map_max_len - 1) * 2, \
 		map->raw_layout_size * 2, "minimap");
@@ -32,7 +33,6 @@ int	main(int argc, char *argv[])
 	t_raw_map	*map;
 	t_mlx		*mlx;
 	t_settings	*settings;
-	int			y;
 
 	input_parsing(argc, argv);
 	map = init_map("map.cub");
@@ -43,15 +43,10 @@ int	main(int argc, char *argv[])
 	settings = ft_calloc(1, sizeof(t_settings));
 	get_settings(settings, map->raw_cfg);
 	mlx->settings = settings;
-	y = 0;
-	while (mlx->map->raw_layout[y] != 0)
-	{
-		printf("%s", mlx->map->raw_layout[y]);
-		y++;
-	}
 	init_images(mlx, map);
 	event_handler(mlx);
 	render_images(mlx);
 	mlx_loop(mlx->mlx_ptr);
 	map = destroy_map(map);
+	mlx->tx = destroy_tx(mlx);
 }
