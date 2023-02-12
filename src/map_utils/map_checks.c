@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_checks.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
+/*   By: viferrei <viferrei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 16:50:26 by hmochida          #+#    #+#             */
-/*   Updated: 2023/02/08 20:25:39 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/02/12 17:59:46 by viferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,14 @@ static int	invalid_adj(char **raw_map, int line, int col)
 
 	valid = "10NSWE";
 	rc = int_strrchr(valid, raw_map[line -1][col]);
-	rc |= int_strrchr(valid, raw_map[line +1][col]);
 	rc |= int_strrchr(valid, raw_map[line][col + 1]);
+	if (rc)
+	{
+		printf("ERROR: adjacency check failed at ");
+		printf("line [%d], col [%d]\n", line, col);
+		return (rc);
+	}
+	rc |= int_strrchr(valid, raw_map[line +1][col]);
 	if (col != 0)
 		rc |= int_strrchr(valid, raw_map[line][col - 1]);
 	if (rc)
