@@ -3,30 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   draw_walls.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: viferrei <viferrei@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 10:18:59 by hmochida          #+#    #+#             */
-/*   Updated: 2023/02/06 20:14:40 by viferrei         ###   ########.fr       */
+/*   Updated: 2023/02/11 21:54:47 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-/*
-	IMPLEMENTAR!!!
-*/
-static int	get_color_from_texture(t_mlx *mlx)
-{
-	if (mlx->cu->wall_face == WALL_NORTH)
-		return (C_RED);
-	else if (mlx->cu->wall_face == WALL_SOUTH)
-		return (C_LPINK);
-	else if (mlx->cu->wall_face == WALL_EAST)
-		return (C_YELLOW);
-	else if (mlx->cu->wall_face == WALL_WEST)
-		return (C_PURP);
-	return (0);
-}
 
 /*
 	Draws the ceiling and sets count to start drawing the wall.
@@ -46,10 +30,14 @@ static int	draw_ceiling(t_mlx *mlx, t_img *cube_img, int pixel_x, int count)
 */
 static int	draw_wall(t_mlx *mlx, t_img *cube_img, int pixel_x, int count)
 {
+	mlx->cu->wall_face = get_wall_face(mlx);
+	mlx->cu->tx_x = get_tx_x(mlx);
+	set_tx_y(mlx);
 	while (count < mlx->cu->wall_end)
 	{
-		mlx->cu->wall_face = get_wall_face(mlx);
 		mlx->cu->color = get_color_from_texture(mlx);
+		mlx->tx[mlx->cu->wall_face].position
+			+= mlx->tx[mlx->cu->wall_face].step_size;
 		ft_mlx_putpix(pixel_x, count, mlx->cu->color, cube_img);
 		count++;
 	}

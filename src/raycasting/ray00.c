@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 10:08:09 by hmochida          #+#    #+#             */
-/*   Updated: 2023/02/05 13:23:15 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/02/11 18:06:08 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ void	draw_cu_image(t_mlx *mlx)
 	int				pixel_x;
 	static t_img	*cube_img;
 
-	printf("cube_img_ptr: %p\n", cube_img);
 	if (!cube_img)
 		cube_img = ft_mlx_get_image_by_label(mlx, "cube");
 	pixel_x = 0;

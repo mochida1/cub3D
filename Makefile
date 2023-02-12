@@ -21,10 +21,11 @@ MAP_UTILS	=	init_map.c map_disassemble.c get_map_raw_layout.c \
 PARSING		=	input_parsing.c
 ACTIONS		= 	key_esc.c mlx_keymap.c event_handler.c colision.c key_wasd.c \
 				key_lr.c
-IMAGE		=	putpix.c putsquare.c render_images.c image_draw0.c image_list.c
+IMAGE		=	putpix.c putsquare.c render_images.c image_draw0.c image_list.c\
+				texture.c
 CLEANUP		=	freedom.c
 RAYCASTING	=	ray00.c ray01.c draw_walls.c ray_moves.c initial_dir.c \
-				draw_walls_utils.c
+				draw_walls_utils.c get_texture.c
 TEST_LIST	=
 
 # Names sources
