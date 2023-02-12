@@ -6,7 +6,7 @@
 /*   By: viferrei <viferrei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 19:39:06 by viferrei          #+#    #+#             */
-/*   Updated: 2023/02/12 17:07:03 by viferrei         ###   ########.fr       */
+/*   Updated: 2023/02/12 17:34:30 by viferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,9 +88,11 @@ void	settings_loop(t_mlx *mlx, t_settings *settings, char *raw_cfg, \
 	if (!ft_strncmp(raw_cfg, "EA", 2))
 		*settings_count += get_texture(&settings->east_texture, raw_cfg);
 	if (!ft_strncmp(raw_cfg, "F", 1))
-		*settings_count += get_color(mlx, settings, settings->floor_color, raw_cfg);
+		*settings_count += get_color(mlx, settings, settings->floor_color, \
+		raw_cfg);
 	if (!ft_strncmp(raw_cfg, "C", 1))
-		*settings_count += get_color(mlx, settings, settings->ceiling_color, raw_cfg);
+		*settings_count += get_color(mlx, settings, settings->ceiling_color, \
+		raw_cfg);
 }
 
 int	get_settings(t_mlx *mlx, char **raw_cfg)

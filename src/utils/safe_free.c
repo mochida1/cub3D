@@ -6,7 +6,7 @@
 /*   By: viferrei <viferrei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 00:44:38 by coder             #+#    #+#             */
-/*   Updated: 2023/02/08 20:28:45 by viferrei         ###   ########.fr       */
+/*   Updated: 2023/02/12 17:35:15 by viferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	free_and_exit(t_mlx *mlx, int exit_code)
 
 	if (mlx)
 	{
-		// NEEDS FIX
 		while (mlx->img_list_head)
 		{
 			temp = mlx->img_list_head;
@@ -44,12 +43,12 @@ void	free_and_exit(t_mlx *mlx, int exit_code)
 
 void	*free_settings(t_settings *settings)
 {
-		safe_free(settings->north_texture);
-		safe_free(settings->south_texture);
-		safe_free(settings->west_texture);
-		safe_free(settings->east_texture);
-		safe_free(settings);
-		return (NULL);
+	safe_free(settings->north_texture);
+	safe_free(settings->south_texture);
+	safe_free(settings->west_texture);
+	safe_free(settings->east_texture);
+	safe_free(settings);
+	return (NULL);
 }
 
 void	*safe_free(void *content)
