@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 15:04:40 by hmochida          #+#    #+#             */
-/*   Updated: 2023/02/11 15:53:10 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/02/12 17:49:46 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ t_tx	*init_textures(t_mlx *mlx)
 	t_tx	*tx;
 
 	tx = ft_calloc(4, sizeof(t_tx));
-	printf("north texture: %s\n", mlx->settings->north_texture);
 	tx[NORTH].tx_img_ptr = mlx_xpm_file_to_image(mlx->mlx_ptr,
 			mlx->settings->north_texture, &tx[NORTH].w, &tx[NORTH].h);
 	tx[SOUTH].tx_img_ptr = mlx_xpm_file_to_image(mlx->mlx_ptr,
