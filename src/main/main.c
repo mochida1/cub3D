@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 20:02:44 by hmochida          #+#    #+#             */
-/*   Updated: 2023/02/11 17:54:27 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/02/12 16:02:13 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	main(int argc, char *argv[])
 	t_settings	*settings;
 
 	input_parsing(argc, argv);
-	map = init_map("map.cub");
+	map = init_map(argv[1]);
 	mlx = ft_calloc(1, sizeof(t_mlx));
 	mlx->mlx_ptr = mlx_init();
 	mlx->win_ptr = mlx_new_window(mlx->mlx_ptr, WINDOW_W, WINDOW_H, "Janella");
