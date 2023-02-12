@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 10:18:59 by hmochida          #+#    #+#             */
-/*   Updated: 2023/02/11 20:26:24 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/02/11 21:45:24 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,13 @@ static int	draw_ceiling(t_mlx *mlx, t_img *cube_img, int pixel_x, int count)
 void set_tx_y(t_mlx *mlx)
 {
 	mlx->tx[mlx->cu->wall_face].step_size = 1.0 * mlx->tx[mlx->cu->wall_face].h / mlx->cu->wall_h;
-	// printf("step: %f\n", mlx->tx[mlx->cu->wall_face].step_size);
-	mlx->tx[mlx->cu->wall_face].position = (mlx->cu->wall_start - mlx->tx[mlx->cu->wall_face].h / 2 + mlx->cu->wall_h / 2) * mlx->tx[mlx->cu->wall_face].step_size;
-	printf("position: %f\n", mlx->tx[mlx->cu->wall_face].position);
+	mlx->tx[mlx->cu->wall_face].position = 0;
+	if (mlx->cu->wall_h > WINDOW_H)
+	{
+		mlx->tx[mlx->cu->wall_face].position = (mlx->cu->wall_h - WINDOW_H) / 2 * mlx->tx[mlx->cu->wall_face].step_size;
+		printf ("pos: %f\n", mlx->tx[mlx->cu->wall_face].position);
+	}
+	printf ("wallH: %d\n", mlx->cu->wall_h);
 }
 
 int	get_color_from_data(char *ptr)
@@ -59,6 +63,7 @@ static int	get_color_from_texture(t_mlx *mlx)
 	int		color;
 	int		tx_y;
 
+	tx_y = (int)mlx->tx[mlx->cu->wall_face].position;
 	tx_y = (int)mlx->tx[mlx->cu->wall_face].position & (mlx->tx[mlx->cu->wall_face].h - 1);
 	ptr = mlx->tx[mlx->cu->wall_face].data + (tx_y * mlx->tx[mlx->cu->wall_face].sz_line + mlx->cu->tx_x * (mlx->tx[mlx->cu->wall_face].bpp / 8));
 	color = get_color_from_data(ptr);
