@@ -6,7 +6,7 @@
 /*   By: viferrei <viferrei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 13:10:32 by viferrei          #+#    #+#             */
-/*   Updated: 2023/02/12 16:58:36 by viferrei         ###   ########.fr       */
+/*   Updated: 2023/02/12 19:03:06 by viferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,7 @@ int	input_parsing(int argc, char **argv)
 	while (argv[1][i])
 	{
 		if (argv[1][i] == '.')
-		{
 			suffix = &argv[1][i];
-			printf("%s", suffix);
-		}
 		if (suffix && ft_strncmp(suffix, ".cub", 4))
 		{
 			printf("error: input must be a '.cub' file\n");

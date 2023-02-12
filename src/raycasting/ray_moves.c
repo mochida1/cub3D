@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ray_moves.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
+/*   By: viferrei <viferrei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 10:22:27 by hmochida          #+#    #+#             */
-/*   Updated: 2023/02/05 10:35:26 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/02/12 18:53:25 by viferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,11 +65,13 @@ static int	is_wall_hit(t_mlx *mlx)
 	if (mlx->cu->mapx < 0)
 	{
 		printf("mapX < 0: something went bad!\n");
+		destroy_mlx(mlx);
 		exit (1);
 	}
 	if (mlx->cu->mapy < 0)
 	{
 		printf("mapy < 0: something went bad!\n");
+		destroy_mlx(mlx);
 		exit (1);
 	}
 	if (mlx->map->raw_layout[(int) mlx->cu->mapy][(int) mlx->cu->mapx] == '1')

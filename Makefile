@@ -42,7 +42,7 @@ CC = clang
 CF = -Wall -Wextra -Werror
 GDB = -ggdb
 VAL = clear && valgrind --trace-children=no --leak-check=full \
-		--track-origins=yes --show-leak-kinds=all ./$(NAME) map.cub
+		--track-origins=yes --show-leak-kinds=all ./$(NAME) maps/stop.cub
 FSF = -fsanitize=address
 
 $(NAME): $(LIBFT) $(BUILDDIR) $(OBJS)
