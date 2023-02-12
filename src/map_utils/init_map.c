@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
+/*   By: viferrei <viferrei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 19:58:10 by hmochida          #+#    #+#             */
-/*   Updated: 2023/02/12 16:20:50 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/02/12 16:45:59 by viferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,12 +61,14 @@ int	get_raw_map_data(t_raw_map *map, char *path_to_map)
 	if (get_raw_map_size(map, path_to_map))
 	{
 		printf("error getting raw map data\n");
-		exit (1);
+		destroy_map(map);
+		exit(1);
 	}
 	if (read_map_data(map, path_to_map))
 	{
 		printf("error reading raw map data\n");
-		exit (1);
+		destroy_map(map);
+		exit(1);
 	}
 	get_raw_map_settings(map);
 	map_disassemble(map);

@@ -3,20 +3,60 @@
 /*                                                        :::      ::::::::   */
 /*   safe_free.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
+/*   By: viferrei <viferrei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 00:44:38 by coder             #+#    #+#             */
-/*   Updated: 2023/01/13 22:09:15 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/02/08 20:28:45 by viferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
+void	free_and_exit(t_mlx *mlx, int exit_code)
+{
+	t_img	*temp;
+
+	if (mlx)
+	{
+		// NEEDS FIX
+		while (mlx->img_list_head)
+		{
+			temp = mlx->img_list_head;
+			safe_free(mlx->img_list_head->img_ptr);
+			safe_free(mlx->img_list_head->label);
+			safe_free(mlx->img_list_head->data);
+			mlx->img_list_head = mlx->img_list_head->next;
+			safe_free(temp);
+		}
+		if (mlx->cu)
+			free(mlx->cu);
+		if (mlx->map)
+			destroy_map(mlx->map);
+		if (mlx->settings)
+			free_settings(mlx->settings);
+		mlx_destroy_window(mlx->mlx_ptr, mlx->win_ptr);
+		mlx_destroy_display(mlx->mlx_ptr);
+		safe_free(mlx->mlx_ptr);
+		free(mlx);
+	}
+	exit(exit_code);
+}
+
+void	*free_settings(t_settings *settings)
+{
+		safe_free(settings->north_texture);
+		safe_free(settings->south_texture);
+		safe_free(settings->west_texture);
+		safe_free(settings->east_texture);
+		safe_free(settings);
+		return (NULL);
+}
+
 void	*safe_free(void *content)
 {
 	if (content != NULL)
 	{
-		free (content);
+		free(content);
 		content = NULL;
 		return (NULL);
 	}

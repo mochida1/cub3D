@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
+/*   By: viferrei <viferrei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 20:02:44 by hmochida          #+#    #+#             */
-/*   Updated: 2023/02/12 16:02:13 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/02/12 16:46:25 by viferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ int	main(int argc, char *argv[])
 {
 	t_raw_map	*map;
 	t_mlx		*mlx;
-	t_settings	*settings;
 
 	input_parsing(argc, argv);
 	map = init_map(argv[1]);
@@ -40,9 +39,7 @@ int	main(int argc, char *argv[])
 	mlx->mlx_ptr = mlx_init();
 	mlx->win_ptr = mlx_new_window(mlx->mlx_ptr, WINDOW_W, WINDOW_H, "Janella");
 	mlx->map = map;
-	settings = ft_calloc(1, sizeof(t_settings));
-	get_settings(settings, map->raw_cfg);
-	mlx->settings = settings;
+	get_settings(mlx, map->raw_cfg);
 	init_images(mlx, map);
 	event_handler(mlx);
 	render_images(mlx);
