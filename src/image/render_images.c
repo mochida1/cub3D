@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 21:23:11 by hmochida          #+#    #+#             */
-/*   Updated: 2023/02/11 18:42:48 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/02/12 15:56:02 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,12 @@ int	render_images(t_mlx *mlx)
 	while (temp)
 	{
 		if (!temp->hide)
-			mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr,
-				temp->img_ptr, temp->win_x, temp->win_y);
+		{
+			if (!ft_strcmp(temp->label, "miniplayer"))
+				img_miniplayer(temp, (int) mlx->cu->posx, (int) mlx->cu->posy);
+		}
+		mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr,
+			temp->img_ptr, temp->win_x, temp->win_y);
 		temp = temp->next;
 	}
 	return (0);
