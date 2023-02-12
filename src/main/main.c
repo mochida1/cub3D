@@ -3,14 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
+/*   By: viferrei <viferrei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 20:02:44 by hmochida          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2023/02/08 19:23:07 by viferrei         ###   ########.fr       */
-=======
-/*   Updated: 2023/02/11 17:54:27 by hmochida         ###   ########.fr       */
->>>>>>> main
+/*   Updated: 2023/02/12 15:44:13 by viferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +32,6 @@ int	main(int argc, char *argv[])
 {
 	t_raw_map	*map;
 	t_mlx		*mlx;
-<<<<<<< HEAD
-	int			y;
-=======
-	t_settings	*settings;
->>>>>>> main
 
 	input_parsing(argc, argv);
 	map = init_map("map.cub");
@@ -48,19 +39,7 @@ int	main(int argc, char *argv[])
 	mlx->mlx_ptr = mlx_init();
 	mlx->win_ptr = mlx_new_window(mlx->mlx_ptr, WINDOW_W, WINDOW_H, "Janella");
 	mlx->map = map;
-<<<<<<< HEAD
 	get_settings(mlx, map->raw_cfg);
-	y = 0;
-	while (mlx->map->raw_layout[y] != 0)
-	{
-		printf("%s", mlx->map->raw_layout[y]);
-		y++;
-	}
-=======
-	settings = ft_calloc(1, sizeof(t_settings));
-	get_settings(settings, map->raw_cfg);
-	mlx->settings = settings;
->>>>>>> main
 	init_images(mlx, map);
 	event_handler(mlx);
 	render_images(mlx);
