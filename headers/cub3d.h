@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 19:57:32 by hmochida          #+#    #+#             */
-/*   Updated: 2023/02/11 15:06:13 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/02/11 21:53:58 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,5 +127,11 @@ void		pos_is_s(t_mlx	*mlx);
 void		pos_is_n(t_mlx *mlx);
 void		pos_is_e(t_mlx *mlx);
 void		rotate_to_starting_dir(t_mlx *mlx);
+// get_texture.c
+void		set_tx_y(t_mlx *mlx);
+int			get_color_from_data(char *ptr);
+int			get_color_from_texture(t_mlx *mlx);
+double		get_wall_x(t_mlx *mlx);
+int			get_tx_x(t_mlx *mlx);
 
 #endif //CUB3D_H
