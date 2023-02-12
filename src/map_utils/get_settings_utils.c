@@ -3,14 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   get_settings_utils.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: viferrei <viferrei@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 19:40:29 by viferrei          #+#    #+#             */
-/*   Updated: 2023/02/07 19:45:26 by viferrei         ###   ########.fr       */
+/*   Updated: 2023/02/12 15:14:31 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+static int	no_xpm_files_found(t_settings *settings)
+{
+	int	fd;
+	int	ret;
+
+	ret = 0;
+	fd = open(settings->north_texture, O_RDONLY);
+	if (fd < 0)
+		ret |= printf("Error: texture path - %s\n", settings->north_texture);
+	close(fd);
+	fd = open(settings->south_texture, O_RDONLY);
+	if (fd < 0)
+		ret |= printf("Error: texture path - %s\n", settings->south_texture);
+	close(fd);
+	fd = open(settings->east_texture, O_RDONLY);
+	if (fd < 0)
+		ret |= printf("Error: texture path - %s\n", settings->east_texture);
+	close(fd);
+	fd = open(settings->west_texture, O_RDONLY);
+	if (fd < 0)
+		ret |= printf("Error: texture path - %s\n", settings->west_texture);
+	close(fd);
+	return (ret);
+}
 
 int	empty_setting(t_settings *settings)
 {
@@ -47,6 +72,8 @@ int	check_settings_nb(t_settings *settings, int settings_count)
 		exit_code = 1;
 	}
 	if (empty_setting(settings))
+		exit_code = 1;
+	if (no_xpm_files_found(settings))
 		exit_code = 1;
 	return (exit_code);
 }
