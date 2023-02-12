@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 21:08:39 by hmochida          #+#    #+#             */
-/*   Updated: 2023/02/11 15:52:46 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/02/12 16:39:29 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,7 @@
 void	key_esc(t_mlx *mlx)
 {
 	printf("\033[31;1mClosing Cub32...\033[0m\n");
-	mlx_destroy_window(mlx->mlx_ptr, mlx->win_ptr);
-	mlx_destroy_display(mlx->mlx_ptr);
+	destroy_mlx(mlx);
 	printf("\033[32;1mCub3D closed successfully.\033[0m\n");
 	exit (0);
 }
@@ -24,8 +23,7 @@ void	key_esc(t_mlx *mlx)
 int	red_x_close(t_mlx *mlx)
 {
 	printf("\033[31;1mClosing Cub32...\033[0m\n");
-	mlx_destroy_window(mlx->mlx_ptr, mlx->win_ptr);
-	mlx_destroy_display(mlx->mlx_ptr);
+	destroy_mlx(mlx);
 	printf("\033[32;1mCub3D closed successfully.\033[0m\n");
 	exit (0);
 	return (0);
