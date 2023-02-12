@@ -6,7 +6,7 @@
 /*   By: viferrei <viferrei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 19:58:10 by hmochida          #+#    #+#             */
-/*   Updated: 2023/02/08 19:37:07 by viferrei         ###   ########.fr       */
+/*   Updated: 2023/02/12 16:45:59 by viferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ void	*destroy_map(t_raw_map *map)
 {
 	map->raw_map_data = free_string_array(map->raw_map_data);
 	map->raw_layout = free_string_array(map->raw_layout);
-	safe_free(map->raw_cfg);
+	map->raw_cfg = safe_free(map->raw_cfg);
 	map = safe_free(map);
 	return (NULL);
 }

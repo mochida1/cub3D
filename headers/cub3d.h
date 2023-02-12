@@ -6,7 +6,7 @@
 /*   By: viferrei <viferrei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 19:57:32 by hmochida          #+#    #+#             */
-/*   Updated: 2023/02/12 15:44:21 by viferrei         ###   ########.fr       */
+/*   Updated: 2023/02/12 16:45:56 by viferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,10 @@ void		free_and_exit(t_mlx *mlx, int exit_code);
 void		*free_settings(t_settings *settings);
 
 /* CLEANUP */
+void		destroy_settings(t_mlx *mlx);
+void		destroy_img_list(t_mlx *mlx);
+void		destroy_cu(t_mlx *mlx);
+void		destroy_mlx(t_mlx *mlx);
 void		*free_raw_map(t_raw_map *map);
 
 /* RAYCASTING */

@@ -6,7 +6,7 @@
 /*   By: viferrei <viferrei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 20:02:44 by hmochida          #+#    #+#             */
-/*   Updated: 2023/02/12 15:44:13 by viferrei         ###   ########.fr       */
+/*   Updated: 2023/02/12 16:46:25 by viferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	main(int argc, char *argv[])
 	t_mlx		*mlx;
 
 	input_parsing(argc, argv);
-	map = init_map("map.cub");
+	map = init_map(argv[1]);
 	mlx = ft_calloc(1, sizeof(t_mlx));
 	mlx->mlx_ptr = mlx_init();
 	mlx->win_ptr = mlx_new_window(mlx->mlx_ptr, WINDOW_W, WINDOW_H, "Janella");

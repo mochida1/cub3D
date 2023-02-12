@@ -41,8 +41,8 @@ OBJS = $(addprefix $(BUILDDIR)/, $(SOURCES:%.c=%.o))
 CC = clang
 CF = -Wall -Wextra -Werror
 GDB = -ggdb
-VAL = valgrind --trace-children=no --leak-check=full --track-origins=yes --show-leak-kinds=all\
-		./$(NAME) map.cub
+VAL = clear && valgrind --trace-children=no --leak-check=full --track-origins=yes \
+		--show-leak-kinds=all ./$(NAME) map.cub
 FSF = -fsanitize=address
 
 $(NAME): $(LIBFT) $(BUILDDIR) $(OBJS)
