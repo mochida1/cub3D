@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 19:57:32 by hmochida          #+#    #+#             */
-/*   Updated: 2023/02/11 21:53:58 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/02/12 16:40:25 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,10 @@ int			ft_strcmp(char *str, char *str2);
 int			int_strrchr(const char *str, char c);
 
 /* CLEANUP */
+void		destroy_settings(t_mlx *mlx);
+void		destroy_img_list(t_mlx *mlx);
+void		destroy_cu(t_mlx *mlx);
+void		destroy_mlx(t_mlx *mlx);
 void		*free_raw_map(t_raw_map *map);
 
 /* RAYCASTING */
