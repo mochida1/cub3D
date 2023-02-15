@@ -3,14 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   map_checks.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: viferrei <viferrei@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 16:50:26 by hmochida          #+#    #+#             */
-/*   Updated: 2023/02/12 17:59:46 by viferrei         ###   ########.fr       */
+/*   Updated: 2023/02/14 21:56:12 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+
+/*
+	iterates trough a line and checks if given character exists and is valid;
+*/
+static int	iterate_and_check(char *valid, char **raw_map, int line, int col)
+{
+	int	c;
+
+	c = 0;
+	while(raw_map[line][c] && c < col)
+		c++;
+	if (c != col)
+		return (1);
+	return (int_strrchr(valid, raw_map[line][c]));
+}
 
 /*
 	Checks every adjacent tile for valid characters.
@@ -22,17 +38,18 @@ static int	invalid_adj(char **raw_map, int line, int col)
 	int		rc;
 
 	valid = "10NSWE";
-	rc = int_strrchr(valid, raw_map[line -1][col]);
-	rc |= int_strrchr(valid, raw_map[line][col + 1]);
+	rc = iterate_and_check(valid, raw_map, line -1, col);
+	rc |= iterate_and_check(valid, raw_map, line, col + 1);
 	if (rc)
 	{
+		printf("02:%d\n", rc);
 		printf("ERROR: adjacency check failed at ");
 		printf("line [%d], col [%d]\n", line, col);
 		return (rc);
 	}
-	rc |= int_strrchr(valid, raw_map[line +1][col]);
+	rc |= iterate_and_check(valid, raw_map, line +1, col);
 	if (col != 0)
-		rc |= int_strrchr(valid, raw_map[line][col - 1]);
+		rc |= iterate_and_check(valid, raw_map, line, col - 1);
 	if (rc)
 	{
 		printf("ERROR: adjacency check failed at ");
