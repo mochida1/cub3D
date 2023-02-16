@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 18:53:48 by hmochida          #+#    #+#             */
-/*   Updated: 2023/01/17 22:00:50 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/02/16 20:06:41 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,8 @@ static unsigned int	get_raw_layout_size(t_raw_map *map, int line)
 	index = 0;
 	while (map->raw_map_data[line])
 	{
-		if (map->raw_map_data[line][index] && map->raw_map_data[line][index]
-			!= '1')
+		if (map->raw_map_data[line][index] && (map->raw_map_data[line][index]
+			!= '1' && map->raw_map_data[line][index] != '\n'))
 			index++;
 		else
 		{
@@ -92,15 +92,12 @@ static int	init_raw_map_layout(t_raw_map *map, int line)
 	unsigned int	index;
 
 	index = 0;
+	printf("line: %d\n", line);
 	map->raw_layout = ft_calloc(map->raw_layout_size + 1, sizeof(char *));
 	while (map->raw_layout_size > index)
 	{
+		printf(">>%s", map->raw_map_data[index + line]);
 		if (map->raw_map_data[index + line][0] == '#')
-		{
-			index++;
-			continue ;
-		}
-		if (map->raw_map_data[index + line][0] == '\n')
 		{
 			index++;
 			continue ;
