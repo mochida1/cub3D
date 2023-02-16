@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 20:27:57 by hmochida          #+#    #+#             */
-/*   Updated: 2023/02/16 20:22:18 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/02/16 20:28:37 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,8 @@ int	check_map(char **raw_map)
 	rc |= check_duplicate(raw_map);
 	rc |= check_character(raw_map);
 	rc |= check_for_starting(raw_map);
-	printf ("ERROR #%d\n", rc);
+	if (rc)
+		printf ("ERROR #%d\n", rc);
 	return (rc);
 }
 
