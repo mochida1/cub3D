@@ -1,9 +1,0 @@
-{
-	"files.associations": {
-		"cub3d.h": "c",
-		"cub_utils.h": "c",
-		"stdio.h": "c",
-		"cub_defs.h": "c",
-		"math.h": "c"
-	}
-}
