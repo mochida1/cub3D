@@ -1,0 +1,22 @@
+#implementign shell like comments to be ignored.
+
+#INDETIFIERS
+NO	./textures/uni1.xpm
+SO	./textures/uni2.xpm
+WE	./textures/uni3.xpm
+EA	./textures/unipoop.xpm
+F   209, 165, 190
+C   53, 164, 166
+
+#will make it so that '\t' is replaced by (4-(number of characters in line so far)%4)
+
+#this should be a valid(although shitty, made by a total asshole) map. Note the trailing spaces/tabs.
+
+111
+101
+111
+
+
+1111111
+100S001
+1111111
