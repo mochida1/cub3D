@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 16:50:26 by hmochida          #+#    #+#             */
-/*   Updated: 2023/02/14 21:57:29 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/02/16 20:19:38 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int	check_adjacency(char **raw_map)
 		{
 			if (ft_strrchr("0NSWE", raw_map[line][col]))
 				if (invalid_adj(raw_map, line, col))
-					return (1);
+					return (4);
 			col++;
 		}
 		col = 0;
@@ -101,7 +101,7 @@ int	check_character(char **raw_map)
 			{
 				printf("ERROR: Invalid character found at line[%d] ", line);
 				printf("col[%d]: '%c'\n", col, raw_map[line][col]);
-				return (1);
+				return (16);
 			}
 			col++;
 		}
@@ -131,7 +131,7 @@ int	check_duplicate(char **raw_map)
 			{
 				printf("ERROR: duplicated starting position at line [");
 				printf("%d], col[%d]: %c\n", line, col, raw_map[line][col]);
-				return (1);
+				return (8);
 			}
 			if (start_pos == 0 && !int_strrchr("NSWE", raw_map[line][col]))
 				start_pos = 1;

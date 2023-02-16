@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 16:53:33 by hmochida          #+#    #+#             */
-/*   Updated: 2023/01/28 16:56:05 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/02/16 20:19:04 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int	check_last_line(char **map)
 	while (map[line - 1][col] && map[line - 1][col] != '\n')
 	{
 		if (is_space_or_wall(map[line - 1][col], line, col))
-			return (1);
+			return (2);
 		col++;
 	}
 	return (0);

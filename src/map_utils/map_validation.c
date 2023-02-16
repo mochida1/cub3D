@@ -6,11 +6,36 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 20:27:57 by hmochida          #+#    #+#             */
-/*   Updated: 2023/01/28 16:56:48 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/02/16 20:22:18 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+int	check_for_starting(char **raw_map)
+{
+	int	line;
+	int	col;
+	int	flag;
+
+	line = 0;
+	col = 0;
+	flag = 0;
+	while (raw_map[line])
+	{
+		while (raw_map[line][col] && raw_map[line][col] != '\n')
+		{
+			if (!int_strrchr("NSWE", raw_map[line][col]))
+				flag++;
+			col++;
+		}
+		col = 0;
+		line++;
+	}
+	if (flag == 1)
+		return (0);
+	return (32);
+}
 
 int	check_settings(char **raw_cfg)
 {
@@ -32,6 +57,8 @@ int	check_map(char **raw_map)
 	rc |= check_adjacency(raw_map);
 	rc |= check_duplicate(raw_map);
 	rc |= check_character(raw_map);
+	rc |= check_for_starting(raw_map);
+	printf ("ERROR #%d\n", rc);
 	return (rc);
 }
 
