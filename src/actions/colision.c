@@ -39,7 +39,7 @@ int	colision_s(t_mlx *mlx)
 				+ mlx->cu->diry * -1 * MOVESPEED)][(int)mlx->cu->posx]))
 		ret |= COLISION_Y;
 	if (int_strrchr("0NSWE", mlx->map->raw_layout[(int)mlx->cu->posy]
-			[(int)(mlx->cu->posx + mlx->cu->diry * -1 * MOVESPEED)]))
+			[(int)(mlx->cu->posx + mlx->cu->dirx * -1 * MOVESPEED)]))
 		ret |= COLISION_X;
 	return (ret);
 }
