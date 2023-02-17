@@ -6,7 +6,7 @@
 /*   By: viferrei <viferrei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 13:10:32 by viferrei          #+#    #+#             */
-/*   Updated: 2023/02/12 19:03:06 by viferrei         ###   ########.fr       */
+/*   Updated: 2023/02/16 21:51:20 by viferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,16 +47,11 @@ int	input_parsing(int argc, char **argv)
 	validate_argc(argc);
 	suffix = NULL;
 	i = 0;
-	while (argv[1][i])
+
+	if (ft_strncmp(&argv[1][ft_strlen(argv[1]) - 4], ".cub", 4))
 	{
-		if (argv[1][i] == '.')
-			suffix = &argv[1][i];
-		if (suffix && ft_strncmp(suffix, ".cub", 4))
-		{
-			printf("error: input must be a '.cub' file\n");
-			exit (1);
-		}
-		i++;
+		printf("error: input must be a '.cub' file\n");
+		exit (1);
 	}
 	validate_file(argv[1]);
 	return (0);
