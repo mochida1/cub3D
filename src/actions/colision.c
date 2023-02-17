@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 17:37:58 by hmochida          #+#    #+#             */
-/*   Updated: 2023/02/05 14:35:06 by hmochida         ###   ########.fr       */
+/*   Updated: 2023/02/16 21:39:51 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	colision_s(t_mlx *mlx)
 				+ mlx->cu->diry * -1 * MOVESPEED)][(int)mlx->cu->posx]))
 		ret |= COLISION_Y;
 	if (int_strrchr("0NSWE", mlx->map->raw_layout[(int)mlx->cu->posy]
-			[(int)(mlx->cu->posx + mlx->cu->diry * -1 * MOVESPEED)]))
+			[(int)(mlx->cu->posx + mlx->cu->dirx * -1 * MOVESPEED)]))
 		ret |= COLISION_X;
 	return (ret);
 }
